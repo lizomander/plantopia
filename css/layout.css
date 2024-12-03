@@ -1,0 +1,360 @@
+/*BASE*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/* General Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333; /* Default color for text */
+}
+
+/* Ensure all headings, buttons, etc., inherit the font */
+h1, h2, h3, h4, h5, h6, p, a, span, button, input, label {
+    font-family: inherit;
+    font-weight: 400;
+}
+
+/* Container for Consistent Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Base Styles for Links (Global) */
+a {
+    color: #228b22;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1b6b1b;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px dashed #228b22;
+    outline-offset: 3px;
+}
+
+/* Footer-specific Link Styles (Override if Needed) */
+footer a {
+    color: #666;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: #228b22;
+}
+
+/* Reset for Lists */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+/* Hero Banner Styling */
+.hero{
+    display: flex;
+    justify-content: center;
+}
+
+.hero-banner {
+    width: 100%; 
+    height: 300px;
+    background: url('../img/Title.png') no-repeat center center;
+    background-size: cover; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banner img {
+    display: none;
+}
+.hero img {
+    width: 100%;
+    height: auto; 
+    max-width: 1200px; 
+    display: block;
+    margin: 0 auto;     
+}
+
+/*footer*/
+/* Footer Styling */
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+.footer-logo-img {
+    width: 80px;
+    height: auto;
+}
+
+/* Footer Styling */
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #000;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #777;
+    text-align: center;
+}
+
+/*nav*/
+/* Navigation Menu Styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+nav ul > li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #228b22;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #e6f4ea;
+    color: green;
+}
+
+/* Dropdown Menu Styling */
+nav ul li ul {
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+nav ul li ul li {
+    padding: 5px 15px;
+}
+
+nav ul li ul li a {
+    padding: 8px 12px;
+    display: block;
+    text-align: left;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+/*about*/
+/* About Us Header */
+header h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #228b22;
+    margin-bottom: 10px;
+}
+
+header p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Team Section */
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.about-card {
+    background: #f7fff8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 350px;
+}
+
+.team-photo {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    color: #228b22;
+}
+
+.contact-section ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.contact-section li {
+    margin: 10px 0;
+}
+
+/* Center-align Meet the Team heading */
+.about-wrapper h2, .about-section h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #228b22;
+}
+
+/* Only for Linked Headings in Indoor and Outdoor Plants*/
+.card-heading a {
+    color: green;
+    text-decoration: none;
+}
+
+.card-heading a:hover {
+    color: #1b6b1b;
+    text-decoration: underline;
+}
+
+.about-wrapper{
+    display: flex;
+    gap: 20px;
+}
+.about-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-description{
+    font-size: 16px;
+    text-align: center;
+    padding-top: 10px;
+}
+.font-16{
+    font-size: 16px;
+}
+.green-btn{
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background: #f7fff8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 350px;
+}
+
+body.dark-mode .about-card{
+    background: #00710d;
+}
+body.dark-mode .contact-section{
+    background: #00710d;
+    color:#6cd66c
+}
+
+body.dark-mode .contact-section h2{
+    color:#6cd66c
+}
+body.dark-mode .contact-section a {
+    color: #6cd66c; /* Set the link color for dark mode */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .contact-section a:hover {
+    color: #7eb670; /* Set a hover color for better interaction */
+    text-decoration: underline;
+}
+
+
+body.dark-mode .font-16{
+    color: #7eb670;
+}

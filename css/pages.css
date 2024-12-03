@@ -1,0 +1,273 @@
+/* LOGOUT */
+/* Logout Page Header */
+.logout-header h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #e60023;
+    margin-bottom: 20px;
+}
+
+/* Logout Message Section */
+.logout-message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.goodbye-img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.goodbye-caption {
+    font-size: 16px;
+    color: #555;
+}
+
+/* LINKS */
+/* Logout Links */
+.logout-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button-style Links (if applicable) */
+.green-link {
+    color: #228b22;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.green-link:hover {
+    color: #1b6b1b;
+    text-decoration: underline;
+}
+
+/* HOMEPAGE */
+/* Return to Homepage Link */
+.return-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-home a {
+    color: #147d01;
+    text-decoration: none;
+}
+
+.return-home a:hover {
+    text-decoration: underline;
+}
+
+/* BESTSELLER */
+/* Bestseller Plants Section */
+.bestsellers {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.bestsellers h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #228b22;
+}
+
+.plant-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+}
+
+.plant-item {
+    width: 150px; /* Maintain uniform card sizes */
+    text-align: center;
+}
+
+.plant-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Entire item clickable */
+}
+
+.plant-item img {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.plant-item img:hover {
+    transform: scale(1.05); /* Hover zoom */
+}
+
+.plant-item p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.plant-item a:hover p {
+    color: #228b22;
+}
+
+/* STYLE */
+/* Center "Get in touch with us" Text */
+.center-text {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+:root {
+    /* Light Mode - Botanical Garden */
+    --primary-color: #B2BEB5;
+    --secondary-color: #F8F5E9;
+    --accent-color: #D99A6C;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --highlight-color: #F5D5CB;
+    --price-box-bg: #f7fff8;
+    --price-box-text: #333;
+}
+
+body.dark-mode {
+    --primary-color: #175702;
+    --secondary-color: #BCA5B3;
+    --accent-color: #6A994E;
+    --background-color: #4aa954;
+    --text-color: #EDE8E1;
+    --price-box-bg: #165316;
+    --price-box-text: #FFFFFF;
+}
+
+/* Apply variables to your site */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Toggle Button Styles */
+.icon-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+  
+.icon-toggle .moon {
+    color: #f0e68c;
+}
+
+.icon-toggle .sun {
+    color: #ffd700;
+}
+
+/* Price Calculation Box */
+#price-calculation {
+    background-color: var(--price-box-bg);
+    color: var(--price-box-text);
+    border-left: 5px solid var(--secondary-color);
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#price-calculation label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#price-calculation input {
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+#price-calculation button {
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#price-calculation button:hover {
+    background-color: #45a049;
+}
+
+#priceResults {
+    margin-top: 15px;
+}
+
+#priceResults p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Shopping Cart Styles */
+#add-to-collection-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#add-to-collection-btn:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}
+
+.green-btn {
+    background-color: #4CAF50;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.green-btn:hover {
+    background-color: #45a049;
+}
