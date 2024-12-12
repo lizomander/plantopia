@@ -1,16 +1,17 @@
+
 /* General Styling */
 body {
     margin: 0;
     padding: 0;
     font-family: Montserrat, sans-serif;
-    color: #333; 
-    background-color: #ffffff; 
-    line-height: 1.6; 
+    color: #333; /* Default text color */
+    background-color: #ffffff; /* Light mode background */
+    line-height: 1.6; /* Better readability */
 }
 
-body.dark-mode {
-    background-color: #0b3d0b; 
-    color: #79cf79; 
+body.-mode {
+    background-color: #0b3d0b; /* Dark green background for dark mode */
+    color: #79cf79; /* Light green text for readability */
 }
 
 /* BANNERS */
@@ -27,7 +28,7 @@ body.dark-mode {
 }
   
   .limited-offer {
-    background-color: #fffbeb; 
+    background-color: #fffbeb; /* Light yellow */
     border-left: 5px solid #e60023;
     padding: 10px 15px;
     margin-top: 20px;
@@ -37,58 +38,62 @@ body.dark-mode {
   }
 /* General Box Styling */
 .box {
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    padding: 20px; 
-    margin: 15px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Subtle light gradient */
+    padding: 20px; /* Add internal spacing */
+    margin: 15px; /* Add spacing between boxes */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease; /* Smooth animation for hover effects */
 }
 
 /* Dark Mode Box Styling */
 body.dark-mode .box {
-    background: linear-gradient(to bottom, #1a4c1a, #123312);
-    box-shadow: none;
-    color: #d4f5d4;
+    background: linear-gradient(to bottom, #1a4c1a, #123312); /* Dark green gradient */
+    box-shadow: none; /* Avoid shadows in dark mode for a flat look */
+    color: #d4f5d4; /* Light green text */
 }
 
 /* Hover Effect */
 .box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow */
 }
 
 .header-links {
-    background: #f8f9fa;
-    padding: 15px 20px;
+    background: #f8f9fa; /* Light background */
+    padding: 10px 0; /* Reduce padding for better centering */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
+    justify-content: space-between; /* Push left and right links to edges */
+    align-items: center; /* Center content vertically */
+    border-bottom: 1px solid #ddd; /* Subtle divider */
 }
 
 .header-links-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Push left and right sections apart */
+    align-items: center; /* Center links vertically */
     width: 100%;
+    height: 100%; /* Ensure full height alignment */
 }
 
 .left-links,
 .right-links {
     display: flex;
-    gap: 20px;
+    align-items: center; /* Vertically center links */
+    gap: 20px; /* Space between links */
 }
 
 .header-link {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    color: #4CAF50;
+    color: #4CAF50; /* Green text */
     transition: color 0.3s ease;
+    line-height: 1; /* Reset line height to align text */
 }
 
 .header-link:hover {
-    color: #3e8e41;
+    color: #3e8e41; /* Darker green on hover */
 }
 
 body.dark-mode {
@@ -108,36 +113,49 @@ body.dark-mode .header-links {
 }
 
 body.dark-mode .header-link {
-    color: #85e085;
+    color: #85e085; /* Softer green for links in dark mode */
 }
 
 body.dark-mode .header-link:hover {
-    color: #d4f5d4;
+    color: #d4f5d4; /* Brighter green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-links-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Reduce gap for stacked layout */
+    }
+    .left-links,
+    .right-links {
+        justify-content: center;
+    }
 }
 
 /* Cards Example */
 .card {
-    background: #ffffff;
-    border-radius: 10px;
+    background: #ffffff; /* White for light mode */
+    border-radius: 10px; /* Rounded corners */
     padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0; /* Vertical spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02); /* Slight zoom */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
 body.dark-mode .card {
-    background: #1a4c1a;
-    box-shadow: none;
+    background: #1a4c1a; /* Darker green background */
+    box-shadow: none; /* Flat design in dark mode */
 }
 
 /* New Arrival Banner */
 .new-banner {
-    background-color: #ff6347;
+    background-color: #ff6347; /* Tomato red for attention */
     color: white;
     text-align: center;
     padding: 10px;
@@ -149,8 +167,8 @@ body.dark-mode .card {
 
 /* Promotion Section */
 .promotion {
-    background-color: #c2ffc2;
-    border-left: 5px solid #228b22;
+    background-color: #c2ffc2; /* Light green to match the plant theme */
+    border-left: 5px solid #228b22; /* Green border for emphasis */
     padding: 10px 15px;
     margin-top: 20px;
     font-size: 16px;
@@ -162,7 +180,7 @@ body.dark-mode .card {
 .hero-banner {
     width: 100%;
     height: 300px;
-    background: url('./img/Title.png') no-repeat center center;
+    background: url('./images/small-Title.png') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -177,19 +195,19 @@ body.dark-mode .card {
 .hero-banner {
     width: 100%;
     height: 300px;
-    background: url('./img/Title.png') no-repeat center center;
+    background: url('./images/small-Title.png') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    color: #ffffff; 
+    color: #ffffff; /* Default light text */
     transition: all 0.3s ease;
 }
 
 /* Dark Mode */
 body.dark-mode .hero-banner {
-    filter: brightness(0.7);
+    filter: brightness(0.7); /* Dim the image for dark mode */
 }
 
 /* Overlay Text */
@@ -198,9 +216,18 @@ body.dark-mode .hero-banner {
     height: auto;
 }
 
+/* Mobile View */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 200px;
+        background: url('./images/small-Title.png') no-repeat center center;
+        background-size: cover;
+    }
+}
+
 /* DARK MODE HERO BANNER */
 body.dark-mode .hero-banner {
-    background: url('../img/Title.png') no-repeat center center;
+    background: url('../images/Title.png') no-repeat center center;
     background-size: cover;
 }
 
@@ -212,7 +239,7 @@ body.dark-mode .hero-banner::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
     z-index: 1;
 }
 
@@ -220,6 +247,20 @@ body.dark-mode .hero-banner::after {
 .hero-banner > * {
     position: relative;
     z-index: 2;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 200px;
+        background: url('./images/small-Title.png') no-repeat center center;
+        background-size: cover;
+    }
+
+    body.dark-mode .hero-banner {
+        background: url('./images/small-Title.png') no-repeat center center;
+        background-size: cover;
+    }
 }
 
 /* SLIDESHOW */
@@ -233,25 +274,25 @@ body.dark-mode .hero-banner::after {
 }
 
 body.dark-mode .slideshow {
-    background-color: #123312;
+    background-color: #123312; /* Dark green for dark mode */
 }
 
 .slides {
     display: flex;
-    transition: transform 0.5s ease-in-out; 
-    animation: autoSlide 12s infinite;
+    transition: transform 0.5s ease-in-out; /* Smooth slide transitions */
+    animation: autoSlide 12s infinite; /* Automatic sliding */
 }
 
 .slide {
     min-width: 100%;
     font-size: 18px;
-    color: #006400;
+    color: #006400; /* Forest green */
     font-weight: bold;
     line-height: 1.4;
 }
 
 body.dark-mode .slide {
-    color: #d4f5d4;
+    color: #d4f5d4; /* Light green for dark mode */
 }
 
 @keyframes autoSlide {
@@ -264,9 +305,9 @@ body.dark-mode .slide {
 /* CARDS */
 .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack for small screens */
     gap: 15px;
-    background: #f9fff9;
+    background: #f9fff9; /* Light green */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -274,45 +315,35 @@ body.dark-mode .slide {
 }
 
 body.dark-mode .card {
-    background: #1a4c1a;
-    color: #d4f5d4;
-    box-shadow: none;
+    background: #1a4c1a; /* Darker green for dark mode */
+    color: #d4f5d4; /* Light text */
+    box-shadow: none; /* Remove shadow for dark mode */
 }
 
 .card-heading {
     font-size: 20px;
     font-weight: bold;
-    color: #228b22;
+    color: #228b22; /* Forest green */
     margin-bottom: 10px;
 }
 
 body.dark-mode .card-heading {
-    color: #85e085;
+    color: #85e085; /* Brighter green for dark mode */
 }
 
 .card-description {
     font-size: 16px;
-    color: #555;
+    color: #555; /* Dark gray for text */
 }
 
 body.dark-mode .card-description {
-    color: #cce5cc;
+    color: #cce5cc; /* Softer green in dark mode */
 }
 
-/* PRICES */
-.original-price {
-    text-decoration: line-through;
-    color: #888;
-    margin-right: 10px;
-}
-
-.sale-price {
-    color: #e60023;
-    font-weight: bold;
-}
-
-body.dark-mode .sale-price {
-    color: #ff8080;
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row; /* Horizontal layout for larger screens */
+    }
 }
 
 /* NAVIGATION */
@@ -322,12 +353,12 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #228b22;
+    background: #228b22; /* Forest green background */
     color: white;
 }
 
 body.dark-mode nav ul {
-    background: #123312;
+    background: #123312; /* Darker green for dark mode */
 }
 
 nav ul li a {
@@ -339,106 +370,52 @@ nav ul li a {
 }
 
 body.dark-mode nav ul li a {
-    color: #7db07d;
+    color: #7db07d; /* Light green links */
 }
 
-/* Dropdown Menu - Hidden by Default */
-nav ul li ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #228b22;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* PRICES */
+.original-price {
+    text-decoration: line-through;
+    color: #888; /* Gray for original price */
+    margin-right: 10px;
 }
 
-nav ul li ul li {
-    padding: 10px;
-    text-align: left;
+.sale-price {
+    color: #e60023; /* Bright red for sale */
+    font-weight: bold;
 }
 
-nav ul li ul li a {
-    color: rgb(21, 150, 21);
-    text-decoration: none;
-    display: block;
+body.dark-mode .sale-price {
+    color: #ff8080; /* Lighter red for dark mode */
 }
 
-nav ul li ul li a:hover {
-    background-color: #1e7c1e;
-} 
 
-/* Dropdown Behavior in Mobile Layout */
-.mobile-layout nav ul li ul {
-    position: static;
-    display: none;
-}
-
-.mobile-layout nav ul li ul li {
-    border-bottom: 1px solid #ddd;
-}
-
-.mobile-layout nav ul li ul li:last-child {
-    border-bottom: none;
-}
-
-/* Dropdown on Hover (Desktop Only) */
-nav ul li:hover > ul {
-    display: block;
-}
-
-/* DEFAULT NAVIGATION */
-nav ul {
+/* Shopping Cart icon on Products pages */
+.product-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
-    padding: 0;
+    margin-bottom: 20px; /* Add space between header and card */
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
     margin: 0;
-    background: #228b22;
-    color: white;
 }
 
-nav ul li {
-    flex-grow: 1;
-    text-align: center;
+/* Dark mode styling for the product title */
+body.dark-mode .product-title {
+    color: #ffffff;
 }
 
-/* MOBILE LAYOUT */
-.mobile-layout nav ul {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    background: #c2ffc2;
-}
-
-.mobile-layout nav ul li {
-    margin: 0;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* DARK MODE NAVIGATION */
-body.dark-mode nav ul {
-    background: #123312;
-}
-
-body.dark-mode nav ul li {
-    background-color: var(--menu-item-bg-color);
-    color: #7db07d;
-}
-
-body.dark-mode nav ul li a {
-    color: #7db07d;
-}
-
-body.dark-mode nav ul li:hover {
-    background-color: var(--menu-item-hover-bg-color);
+.card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px; /* Add spacing above the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

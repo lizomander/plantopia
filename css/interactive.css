@@ -5,7 +5,7 @@ button {
     background: radial-gradient(circle, #4d924d, #006400);
     color: rgb(126, 174, 134);
     border: none;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Increased padding */
     border-radius: 5px;
     font-size: 16px; 
     font-family: 'Montserrat', sans-serif;
@@ -78,6 +78,14 @@ button:focus {
     margin-top: 10px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-button, .register-button, .cancel-button, .reset-button {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+}
+
 /* Navigation Buttons */
 button.prev, button.next {
     position: absolute;
@@ -117,6 +125,14 @@ button:focus {
     justify-content: space-between; 
     gap: 10px;
     margin-top: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-button, .register-button, .cancel-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 /* Navigation Buttons */
@@ -211,7 +227,7 @@ nav ul li:hover ul {
 /* Input field */
 .password-container input {
     width: 100%;
-    padding-right: 36px;
+    padding-right: 36px; /* Space for toggle button */
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -221,12 +237,12 @@ nav ul li:hover ul {
 
 /* Toggle button */
 #togglePassword {
-    all: unset;
+    all: unset; /* Reset default styles */
     position: absolute;
     right: 10px;
     top: 39%;
     transform: translateY(-50%);
-    width: 24px;
+    width: 24px; /* Small button size */
     height: 24px;
     display: flex;
     align-items: center;
@@ -259,7 +275,7 @@ nav ul li:hover ul {
 /* Input field */
 .password-container input {
     width: 100%;
-    padding-right: 36px;
+    padding-right: 36px; /* Space for toggle button */
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -269,12 +285,12 @@ nav ul li:hover ul {
 
 /* Toggle button */
 .password-container .toggle {
-    all: unset;
+    all: unset; /* Reset default styles */
     position: absolute;
     right: 10px;
     top: 39%;
     transform: translateY(-50%);
-    width: 24px;
+    width: 24px; /* Small button size */
     height: 24px;
     display: flex;
     align-items: center;
@@ -355,11 +371,11 @@ input.error {
 }
 
 input[type="text"], input[type="password"] {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Same font as buttons */
     font-size: 16px;
     font-weight: 500;
-    color: black;
-    border: 1px solid #ccc; 
+    color: black; /* Or a color that matches your theme */
+    border: 1px solid #ccc; /* Ensure consistent borders */
     border-radius: 5px;
     padding: 10px;
 }
@@ -379,7 +395,7 @@ input[type="text"], input[type="password"] {
 }
 
 .toggle-btn {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Match button style */
     border: none;
     color: white;
     padding: 10px;
@@ -413,7 +429,7 @@ input[type="text"], input[type="password"] {
   .slide {
     min-width: 100%;
     font-size: 18px;
-    color: #006400;
+    color: #006400; /* Forest green */
     font-weight: bold;
     line-height: 1.4;
   }
