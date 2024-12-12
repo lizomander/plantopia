@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "Customer Page"; 
+    $pageTitle = "Plantopia | Customer Page"; 
     include('includes/header.php');
     include('includes/navbar.php');
 ?>
@@ -60,4 +60,5 @@ if ($user->isLoggedIn()) {
         echo "</div>";
     }
 }
+    include('includes/footer.php'); 
 ?>

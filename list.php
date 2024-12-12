@@ -1,42 +1,32 @@
 
 <?php
-$pageTitle = 'Product List';
-$pageStyle = 'list.css';
-include 'includes/header.php';
+    $pageTitle = "Plantopia | List";
+    include('includes/header.php'); 
+    include('includes/navbar.php');
 
-// Load and decode JSON data
 $data = json_decode(file_get_contents('./json/data.json'), true);
-
 if (!file_exists('./json/data.json')) {
     die('Error: data.json not found.');
 }
-
 if (json_last_error() !== JSON_ERROR_NONE) {
     die("Error parsing JSON file: " . json_last_error_msg());
 }
-
 $category = $_GET['category'] ?? null;
 $subcategory = $_GET['subcategory'] ?? null;
-
 if (!$category) {
     echo "<main><h1>Category not specified!</h1></main>";
     include 'includes/footer.php';
     exit;
 }
-
-// Filter products by category and optionally subcategory
 $filteredProducts = array_filter($data['products'], function ($product) use ($category, $subcategory) {
     return $product['category'] === $category && (!$subcategory || $product['subcategory'] === $subcategory);
 });
-
 if (empty($filteredProducts)) {
     echo "<main><h1>No products found!</h1></main>";
     include 'includes/footer.php';
     exit;
 }
-
 ?>
-
 <main>
     <h1><?php echo htmlspecialchars(ucfirst($category)); ?><?php echo $subcategory ? ' - ' . htmlspecialchars(ucfirst($subcategory)) : ''; ?> Plants</h1>
     <ul>
@@ -52,5 +42,4 @@ if (empty($filteredProducts)) {
         <?php endforeach; ?>
     </ul>
 </main>
-
-<?php include 'includes/footer.php'; ?>
+<?php include('includes/footer.php')?>

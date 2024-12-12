@@ -1,7 +1,7 @@
 <?php
-    $pageTitle = "About Us"; // Dynamic page title
-    include('includes/header.php'); // Include header
-    include('includes/navbar.php'); // Include navbar
+    $pageTitle = "Plantopia | About Us";
+    include('includes/header.php');
+    include('includes/navbar.php');
 ?>
 
 <body>
@@ -43,14 +43,6 @@
 
         <p class="return-home"><a href="index.php">Return to Homepage</a></p>
     </div>
-
-    <div style="height: 200px;"></div>
-    <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
-        ↑
-    </button>
-
-<?php
-    include('includes/footer.php'); 
-?>
+    <?php include('includes/footer.php')?>
 </body>
 </html>

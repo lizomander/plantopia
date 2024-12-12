@@ -1,23 +1,19 @@
 <?php
 session_start();
 
-// Ensure user is logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
 
-// Load product data
 $data = json_decode(file_get_contents('./json/data.json'), true);
 $products = [];
 foreach ($data['products'] as $product) {
     $products[$product['pid']] = $product;
 }
 
-// Load cart
 $cart = $_SESSION['cart'] ?? [];
 
-// Calculate totals
 $totalPrice = 0;
 $taxRate = 0.19;
 foreach ($cart as $pid => $quantity) {
@@ -26,7 +22,7 @@ foreach ($cart as $pid => $quantity) {
     }
 }
 $totalWithTax = $totalPrice * (1 + $taxRate);
-
+$pageTitle = "Plantopia | Shopping Cart";
 include('includes/header.php');
 ?>
 <body>
@@ -73,26 +69,7 @@ include('includes/header.php');
             <?php endif; ?>
         </div>
     </div>
-
-    <div style="height: 200px;"></div>
-    <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
-        ↑
-    </button>
-
-    <footer>
-        <div class="footer-logo">
-            <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
-        </div>
-        <p>&copy; 2024 Plantopia. All rights reserved.</p>
-        <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
-        <ul>
-            <li><a href="privacy.php">Privacy Policy</a></li>
-            <li><a href="terms.php">Terms of Service</a></li>
-        </ul>
-    </footer>
-    <script src="./javascript/darkmode.js"></script>
-    <script src="./javascript/topButton.js"></script>
-
+    <?php include('footer.php')?>
 </body>
 </html>
 <?php
@@ -113,7 +90,6 @@ if ($user->isAdmin()) {
     }
 }
 ?>
-
 <?php
 if ($_POST['action'] === 'reject' && !empty($_POST['reason'])) {
     if ($order['status'] === 'new') {
@@ -124,7 +100,6 @@ if ($_POST['action'] === 'reject' && !empty($_POST['reason'])) {
     }
 }
 ?>
-
 <?php
 if ($user->isAdmin()) {
     echo "<h2>Manage Discounts</h2>";

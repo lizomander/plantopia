@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "Main Page";
+    $pageTitle = "Plantopia | Homepage";
     include('includes/header.php'); 
     include('includes/navbar.php');
 ?>
@@ -9,17 +9,21 @@
         <section class="slideshow">
             <div class="slides">
                 <div class="slide">
-                    <a href="product_succulents.php" class="slide-link">
-                        <p>Big Sale on Succulents! 20% Off</p>
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="product_japanese_maple.php" class="slide-link">
+                    <a href="product.php?pid=4" class="slide-link">
                         <p>New Arrivals: Japanese Maple Trees</p>
                     </a>
                 </div>
                 <div class="slide">
-                    <p>Free Shipping on Orders Over $50!</p>
+                    <p>Free Shipping on Orders Over 20€!</p>
+                </div>
+                <div class="slide">
+                    <p>🌱 Gardening Tips: Water your plants early in the morning to reduce water loss due to evaporation!</p>
+                </div>
+                <div class="slide">
+                    <p>🌟 Did You Know? Monstera plants can grow up to 20 metres tall indoors with proper care.</p>
+                </div>
+                <div class="slide">
+                    <p>📢 Community Update: Join us for the Plant Lovers Meetup on January 15th at the City Garden Center!</p>
                 </div>
             </div>
         </section>
@@ -49,7 +53,6 @@
         </div>
     </section>
     </div>
-
 
     <script>
         // Update cart icon based on session data

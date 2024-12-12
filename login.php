@@ -1,4 +1,7 @@
 <?php
+$pageTitle = "Plantopia | Login";
+include('includes/header.php'); 
+include('includes/navbar.php');
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,21 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script src="./javascript/login./javascript/validation.js" defer></script> <!-- Link to external JS file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/design.css">
-    <link rel="stylesheet" href="./css/interactive.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/pages.css">
-</head>
 <body>
     <div class="container">
         <h1>Login to Your Account</h1>
@@ -85,3 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="./javascript/topButton.js"></script>
 </body>
 </html>
+<?php
+    include('footer.php')
+?>

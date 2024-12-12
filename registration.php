@@ -37,19 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register</title>
-        
-        <link rel="stylesheet" href="./css/design.css">
-        <link rel="stylesheet" href="./css/interactive.css">
-        <link rel="stylesheet" href="./css/layout.css">
-        <link rel="stylesheet" href="./css/pages.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
+<?php
+    $pageTitle = "Plantopia | Registration";
+    include('includes/header.php'); 
+    include('includes/navbar.php');
+?>
     <body>
         <div class="container">
             <h1>Create a New Account</h1>
@@ -91,22 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <p><a href="index.php">Return to Homepage</a></p>
         </div>
-        
-        <footer>
-            <div class="footer-logo">
-                <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
-            </div>
-            <p>&copy; 2024 Plantopia. All rights reserved.</p>
-            <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
-            <ul>
-                <li><a href="privacy.php">Privacy Policy</a></li>
-                <li><a href="terms.php">Terms of Service</a></li>
-            </ul>  
-        </footer>
-        <script src="./javascript/formValidation.js"></script>
-        <script src="./javascript/registrationValidation.js"></script>
-        <script src="./javascript/loginValidation.js"></script>
-        <script src="./javascript/darkmode.js"></script>
-        <script src="./javascript/topButton.js"></script>
+        <?php
+            include('footer.php')
+        ?>
     </body>
 </html>
