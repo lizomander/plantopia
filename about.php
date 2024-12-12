@@ -1,9 +1,10 @@
 <?php
-$pageTitle = 'About Us';
-include 'includes/header.php';
-include 'includes/navbar.php';
+    $pageTitle = "About Us"; // Dynamic page title
+    include('includes/header.php'); // Include header
+    include('includes/navbar.php'); // Include navbar
 ?>
-<main>
+
+<body>
     <div class="container">
         <header>
             <h1>About Us!</h1>
@@ -17,12 +18,12 @@ include 'includes/navbar.php';
                     <img src="./img/ari.jpeg" alt="Photo of Ari" class="team-photo">
                     <p class="about-description"><strong>Ari!</strong> With a bubbly personality and a lot of motivation in finishing her studies, she is the sunshine in our group!</p>
                 </div>
-
+        
                 <div class="about-card">
                     <img src="./img/hussain.jpeg" alt="Photo of Hussain" class="team-photo">
                     <p class="about-description"><strong>Hussain!</strong> Known for his friendly demeanor and positive attitude, Hussain adds a welcoming vibe to our team.</p>
                 </div>
-
+        
                 <div class="about-card">
                     <img src="./img/liz.jpeg" alt="Photo of Lizzy" class="team-photo">
                     <p class="about-description"><strong>Lizzy!</strong> Plant lover and caretaker, Lizzy brings her passion and knowledge to help everyone feel the joy of growing plants.</p>
@@ -42,5 +43,14 @@ include 'includes/navbar.php';
 
         <p class="return-home"><a href="index.php">Return to Homepage</a></p>
     </div>
-</main>
-<?php include 'includes/footer.php'; ?>
+
+    <div style="height: 200px;"></div>
+    <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
+        ↑
+    </button>
+
+<?php
+    include('includes/footer.php'); 
+?>
+</body>
+</html>
