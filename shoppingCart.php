@@ -29,11 +29,6 @@ $totalWithTax = $totalPrice * (1 + $taxRate);
 
 include('includes/header.php');
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-</head>
 
 <body>
     <div class="container">
