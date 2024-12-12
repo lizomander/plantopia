@@ -26,19 +26,13 @@ foreach ($cart as $pid => $quantity) {
     }
 }
 $totalWithTax = $totalPrice * (1 + $taxRate);
+
+include('includes/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="./css/design.css">
-    <link rel="stylesheet" href="./css/interactive.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/pages.css">
     <style>
         .cart-container {
             margin: 20px auto;
@@ -192,7 +186,7 @@ $totalWithTax = $totalPrice * (1 + $taxRate);
 
     <footer>
         <div class="footer-logo">
-            <img src="./images/1.png" alt="Plantopia Logo" class="footer-logo-img">
+            <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
         </div>
         <p>&copy; 2024 Plantopia. All rights reserved.</p>
         <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
@@ -203,5 +197,7 @@ $totalWithTax = $totalPrice * (1 + $taxRate);
     </footer>
     <script src="./javascript/darkmode.js"></script>
     <script src="./javascript/topButton.js"></script>
+
 </body>
+
 </html>
