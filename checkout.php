@@ -9,6 +9,10 @@ if (!isset($_SESSION['user'])) {
 
 // Load product data
 $data = json_decode(file_get_contents('./json/data.json'), true);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    die("Error loading product data: " . json_last_error_msg());
+}
+
 $products = [];
 foreach ($data['products'] as $product) {
     $products[$product['pid']] = $product;
