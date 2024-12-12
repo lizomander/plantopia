@@ -11,6 +11,10 @@
             <li><a href="privacy.php" aria-label="Privacy Policy">Privacy Policy</a></li>
             <li><a href="terms.php" aria-label="Terms of Service">Terms of Service</a></li>
         </ul>
+        <div style="height: 200px;"></div>
+        <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
+            ↑
+        </button>
     </div>
     <script src="/js/addToList.js" defer></script>
     <script src="/js/darkmode.js" defer></script>

@@ -29,114 +29,6 @@ $totalWithTax = $totalPrice * (1 + $taxRate);
 
 include('includes/header.php');
 ?>
-<<<<<<< HEAD
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <style>
-        .cart-container {
-            margin: 20px auto;
-            max-width: 900px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .cart-header {
-            background-color: #f8f8f8;
-            padding: 15px 20px;
-            border-bottom: 1px solid #eaeaea;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .cart-item {
-            display: flex;
-            padding: 20px;
-            border-bottom: 1px solid #eaeaea;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .cart-item img {
-            width: 100px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            align-items: center;
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cart-item-quantity input {
-            width: 60px;
-            text-align: center;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .cart-item-actions {
-            text-align: right;
-        }
-
-        .cart-summary {
-            padding: 20px;
-            background-color: #f8f8f8;
-            text-align: right;
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .cart-summary p {
-            margin: 10px 0;
-            font-size: 18px;
-            font-weight: bold; 
-            text-align: right;
-            justify-content: space-between;
-        }
-
-        .btn-proceed {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 12px 0;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .btn-proceed:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
->>>>>>> 0e640d769a017676a9225268fad7c72d71804808
-
 <body>
     <div class="container">
         <div class="cart-container">
@@ -202,5 +94,46 @@ include('includes/header.php');
     <script src="./javascript/topButton.js"></script>
 
 </body>
-
 </html>
+<?php
+if ($user->isAdmin()) {
+    echo "<h2>Order Management</h2>";
+    $newOrders = getOrdersByStatus('new');
+    echo "<h3>New Orders</h3>";
+    foreach ($newOrders as $order) {
+        echo "<div class='order'>";
+        echo "<p>Order ID: " . $order['id'] . "</p>";
+        echo "<form method='POST' action='updateOrder.php'>";
+        echo "<input type='hidden' name='order_id' value='" . $order['id'] . "'>";
+        echo "<button type='submit' name='action' value='ship'>Mark as Shipped</button>";
+        echo "<button type='submit' name='action' value='reject'>Reject</button>";
+        echo "<textarea name='reason' placeholder='Reason for rejection'></textarea>";
+        echo "</form>";
+        echo "</div>";
+    }
+}
+?>
+
+<?php
+if ($_POST['action'] === 'reject' && !empty($_POST['reason'])) {
+    if ($order['status'] === 'new') {
+        rejectOrder($orderId, $_POST['reason']);
+        echo "<p>Order ID $orderId rejected for reason: " . htmlspecialchars($_POST['reason']) . "</p>";
+    } else {
+        echo "<p>Cannot reject an order that is already processed.</p>";
+    }
+}
+?>
+
+<?php
+if ($user->isAdmin()) {
+    echo "<h2>Manage Discounts</h2>";
+    echo "<form method='POST' action='updateDiscounts.php'>";
+    echo "<label for='discount10'>Discount for every 10th order:</label>";
+    echo "<input type='number' id='discount10' name='discount10' value='10'>%";
+    echo "<label for='discount20'>Discount for every 20th order:</label>";
+    echo "<input type='number' id='discount20' name='discount20' value='20'>%";
+    echo "<button type='submit'>Update Discounts</button>";
+    echo "</form>";
+}
+?>

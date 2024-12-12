@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Profile</title>
-    <link rel="stylesheet" href="./css/design.css">
-    <link rel="stylesheet" href="./css/interactive.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+<?php
+    $pageTitle = "Customer Page"; 
+    include('includes/header.php');
+    include('includes/navbar.php');
+?>
 <body>
     <div class="container">
         <h1>Customer Profile</h1>
@@ -47,23 +40,24 @@
         </form>
         <p><a href="index.php">Return to Homepage</a></p>
     </div>
-    <footer>
-        <div class="footer-logo">
-            <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
-        </div>
-        <p>&copy; 2024 Plantopia. All rights reserved.</p>
-        <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
-        <ul>
-            <li><a href="privacy.php">Privacy Policy</a></li>
-            <li><a href="terms.php">Terms of Service</a></li>
-        </ul>
-        <div style="height: 200px;"></div>
-        <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
-            ↑
-        </button>
-    </footer>
-    <script src="./javascript/darkmode.js"></script>
-    <script src="./javascript/topButton.js"></script>
-    <script src="./javascript/formValidation.js"></script>
 </body>
 </html>
+<?php
+// Order Management Section for Customers
+if ($user->isLoggedIn()) {
+    echo "<h2>Your Orders</h2>";
+    $orders = getOrdersByUser($user->id);
+    foreach ($orders as $order) {
+        echo "<div class='order'>";
+        echo "<p>Order ID: " . $order['id'] . "</p>";
+        echo "<p>Status: " . $order['status'] . "</p>";
+        if ($order['status'] == 'ordered') {
+            echo "<form method='POST' action='cancelOrder.php'>";
+            echo "<input type='hidden' name='order_id' value='" . $order['id'] . "'>";
+            echo "<button type='submit'>Cancel Order</button>";
+            echo "</form>";
+        }
+        echo "</div>";
+    }
+}
+?>
