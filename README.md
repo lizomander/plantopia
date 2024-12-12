@@ -1,6 +1,6 @@
 # Plantopia Website
 
-Welcome to the Plantopia website project! This is a simple plant shop site designed in HTML only, without JavaScript or CSS, making it easy to navigate through HTML links alone.
+Welcome to the Plantopia website project! This is a simple plant shop site designed in Web Technology class for understanding HTML, CSS, JS, JSON, PHP, etc.
 
 ## Table of Contents
 - [Plantopia Website](#plantopia-website)
