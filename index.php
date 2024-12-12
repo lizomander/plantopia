@@ -25,45 +25,32 @@
         </section>
     </div>
     <div>
-        <section class="bestsellers">
-            <h2>Our Bestseller Plants</h2>
-            <div class="plant-list">
-                <div class="plant-item">
-                    <a href="product_monstera.php">
-                        <img src="./img/monstera.jpeg" alt="Monstera">
-                        <p>Monstera</p>
-                    </a>
-                </div>
-                <div class="plant-item">
-                    <a href="product_aloe_vera.php">
-                        <img src="./img/aloevera.jpeg" alt="Aloe Vera">
-                        <p>Aloe Vera</p>
-                    </a>
-                </div>
-                <div class="plant-item">
-                    <a href="product_succulents.php">
-                        <img src="./img/succulents.jpeg" alt="Succulent">
-                        <p>Succulent</p>
-                    </a>
-                </div>
+    <section class="bestsellers">
+        <h2>Our Bestseller Plants</h2>
+        <div class="plant-list">
+            <div class="plant-item">
+                <a href="product.php?pid=1">
+                    <img src="./img/monstera.jpeg" alt="Monstera">
+                    <p>Monstera</p>
+                </a>
             </div>
-        </section>
-    </div>
-    <div style="height: 200px;"></div>
-    <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
-        ↑
-    </button>
-    <footer>
-        <div class="footer-logo">
-            <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
+            <div class="plant-item">
+                <a href="product.php?pid=2">
+                    <img src="./img/aloevera.jpeg" alt="Aloe Vera">
+                    <p>Aloe Vera</p>
+                </a>
+            </div>
+            <div class="plant-item">
+                <a href="product.php?pid=3">
+                    <img src="./img/succulents.jpeg" alt="Succulents">
+                    <p>Succulents</p>
+                </a>
+            </div>
         </div>
-        <p>&copy; 2024 Plantopia. All rights reserved.</p>
-        <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
-        <ul>
-            <li><a href="privacy.php">Privacy Policy</a></li>
-            <li><a href="terms.php">Terms of Service</a></li>
-        </ul>
-    </footer>
+    </section>
+    </div>
+
+
     <script>
         // Update cart icon based on session data
         fetch('cartStatus.php')

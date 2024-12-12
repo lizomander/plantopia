@@ -28,7 +28,6 @@ if ($user->isLoggedIn()) {
 ?>
 
 <?php
-// Refined discount display in cart summary
 if ($discount > 0) {
     $discountAmount = $totalPriceBeforeDiscount * $discount;
     echo "<p>Discount Applied: -" . number_format($discountAmount, 2) . "€</p>";

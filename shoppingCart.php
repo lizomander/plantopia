@@ -47,12 +47,12 @@ include('includes/header.php');
                         <div class="cart-item-title"><?php echo htmlspecialchars($product['name']); ?></div>
                         <div class="cart-item-quantity">
                         <img src="<?php echo htmlspecialchars($product['imagepath']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
-                            <form method="post" action="modifycart.php" style="display: inline;">
+                            <form method="post" action="modifyCart.php" style="display: inline;">
                                 <input type="hidden" name="pid" value="<?php echo $pid; ?>">
                                 <input type="number" name="quantity" value="<?php echo $quantity; ?>" min="1">
                                 <button type="submit" name="action" value="update" class="green-btn">Update</button>
                             </form>
-                            <form method="post" action="modifycart.php" style="display: inline;">
+                            <form method="post" action="modifyCart.php" style="display: inline;">
                                 <input type="hidden" name="pid" value="<?php echo $pid; ?>">
                                 <button type="submit" name="action" value="remove" class="green-btn">Remove</button>
                             </form>

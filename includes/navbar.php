@@ -1,22 +1,19 @@
 <body>
     <header class="hero-banner">
-        <img src="./img/small-Title.png" alt="Welcome to Plantopia">
+        <img src="/img/Title.png" alt="Welcome to Plantopia">
     </header>
     <div>
         <div class="header-links">
             <div class="header-links-wrapper">
-                <!-- Left Links: Profile, Logout -->
                 <div class="left-links">
                     <a href="customer.php" class="header-link">Profile</a>
                     <a href="logout.php" class="header-link">Logout</a>
                 </div>
 
-                <!-- Right Links: Login, Register, and Shopping Cart -->
                 <div class="right-links">
                     <a href="login.php" class="header-link">Login</a>
                     <a href="registration.php" class="header-link">Register</a>
 
-                    <!-- Shopping Cart Icon -->
                     <div class="cart-icon">
                         <a href="shoppingCart.php">
                             <i class="fas fa-shopping-cart" style="font-size: 20px;"></i>
@@ -26,7 +23,6 @@
             </div>
         </div>
 
-        <!-- Main Navigation: Categories and Subcategories -->
         <div class="container">
             <nav>
                 <ul>
