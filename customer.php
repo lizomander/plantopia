@@ -1,64 +1,77 @@
 <?php
-    $pageTitle = "Plantopia | Customer Page"; 
-    include('includes/header.php');
-    include('includes/navbar.php');
-?>
-<body>
-    <div class="container">
-        <h1>Customer Profile</h1>
-        <form action="#" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username">            
+session_start();
 
-        <label for="customerCurrentPassword">Current Password:</label>        
-        <div class="password-container">
-            <input type="password" id="customerCurrentPassword" placeholder="Enter current password">
-            <button type="button" id="toggleCustomerCurrentPassword" class="toggle">
-                <i class="fa-regular fa-eye" id="customerCurrentPasswordIcon"></i>
-            </button>
-        </div>
-        <span id="currentPasswordError" class="error-message"></span>
-
-        <label for="customerNewPassword">New Password:</label>   
-        <div class="password-container">
-            <input type="password" id="customerNewPassword" placeholder="Enter new password">
-            <button type="button" id="toggleCustomerNewPassword" class="toggle">
-                <i class="fa-regular fa-eye" id="customerNewPasswordIcon"></i>
-            </button>
-        </div>
-        <span id="newPasswordError" class="error-message"></span>
-
-        <label for="customerConfirmPassword">Confirm Password:</label>        <div class="password-container">
-            <input type="password" id="customerConfirmPassword" placeholder="Confirm new password">
-            <button type="button" id="toggleCustomerConfirmPassword" class="toggle">
-                <i class="fa-regular fa-eye" id="customerConfirmPasswordIcon"></i>
-            </button>
-        </div> 
-        <span id="confirmPasswordError" class="error-message"></span>
-        
-        <button type="submit">Save Changes</button>
-        </form>
-        <p><a href="index.php">Return to Homepage</a></p>
-    </div>
-</body>
-</html>
-<?php
-// Order Management Section for Customers
-if ($user->isLoggedIn()) {
-    echo "<h2>Your Orders</h2>";
-    $orders = getOrdersByUser($user->id);
-    foreach ($orders as $order) {
-        echo "<div class='order'>";
-        echo "<p>Order ID: " . $order['id'] . "</p>";
-        echo "<p>Status: " . $order['status'] . "</p>";
-        if ($order['status'] == 'ordered') {
-            echo "<form method='POST' action='cancelOrder.php'>";
-            echo "<input type='hidden' name='order_id' value='" . $order['id'] . "'>";
-            echo "<button type='submit'>Cancel Order</button>";
-            echo "</form>";
-        }
-        echo "</div>";
-    }
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
 }
-    include('includes/footer.php'); 
+
+$pageTitle = "Plantopia | Customer Page";
+include('includes/header.php');
+include('includes/navbar.php');
+
+// Load orders.json
+$ordersFile = 'json/orders.json';
+$ordersData = [];
+if (file_exists($ordersFile)) {
+    $ordersData = json_decode(file_get_contents($ordersFile), true);
+}
+
+$currentUser = $_SESSION['user'];
+$userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
+    return $order['user'] === $currentUser;
+});
+
 ?>
+
+<body>
+<div class="container">
+    <h1>Welcome, <?= htmlspecialchars($currentUser) ?>!</h1>
+
+    <div class="profile-section">
+        <h2>Your Profile</h2>
+        <p><strong>Username:</strong> <?= htmlspecialchars($currentUser) ?></p>
+        <p><strong>Account Type:</strong> Regular User</p>
+        <p><strong>Account Status:</strong> Active</p>
+        <a href="editProfile.php" class="btn btn-primary">Edit Profile</a>
+    </div>
+
+    <hr>
+
+    <!-- Order History Section -->
+    <div class="order-history">
+        <h2>Your Order History</h2>
+
+        <?php if (empty($userOrders)): ?>
+            <p>You have not placed any orders yet.</p>
+        <?php else: ?>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Products</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($userOrders as $index => $order): ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td>
+                            <?php foreach ($order['cart'] as $productId => $quantity): ?>
+                                <p>Product ID <?= $productId ?>: <?= $quantity ?> pcs</p>
+                            <?php endforeach; ?>
+                        </td>
+                        <td>$<?= number_format($order['total'], 2) ?></td>
+                        <td><?= htmlspecialchars($order['timestamp']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    </div>
+</div>
+</body>
+<?php include('includes/footer.php'); ?>

@@ -390,3 +390,39 @@ body.dark-mode .cart-item {
 body.dark-mode .cart-summary {
     color: #1a4c1a; /* Softer green in dark mode */
 }
+
+/* Profile page */
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.profile-section, .order-history {
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
