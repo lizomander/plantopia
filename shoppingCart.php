@@ -25,33 +25,20 @@ foreach ($cart as $pid => $quantity) {
     }
 }
 
+// Calculate total quantity in the cart
+$totalQuantity = array_sum($cart);
+
 // Load discounts.json
 $discountsFile = './json/discounts.json';
 $discountsData = json_decode(file_get_contents($discountsFile), true);
 
-// Load orders.json to calculate user order count
-$ordersFile = './json/orders.json';
-$orders = file_exists($ordersFile) ? json_decode(file_get_contents($ordersFile), true) : [];
-
-// Get current user and their order count
-$currentUser = $_SESSION['user'];
-$orderCount = count(array_filter($orders, function ($order) use ($currentUser) {
-    return $order['user'] === $currentUser;
-}));
-
-// Debug: Log the order count
-error_log("Order count for user '{$currentUser}': {$orderCount}");
-
-// Determine the applicable discount
+// Determine the applicable discount based on cart quantity
 $discount = 0;
 foreach ($discountsData['discounts'] as $rule) {
-    if ($orderCount >= $rule['threshold']) {
-        $discount = max($discount, $rule['percentage']); // Apply the highest applicable discount
+    if ($totalQuantity >= $rule['threshold']) {
+        $discount = max($discount, $rule['percentage']);
     }
 }
-
-// Debug: Log the applied discount percentage
-error_log("Applied discount for user '{$currentUser}': {$discount}%");
 
 // Calculate discount and apply to the total price
 $totalPriceBeforeDiscount = $totalPrice;
@@ -60,9 +47,6 @@ if ($discount > 0) {
     $discountAmount = $totalPrice * ($discount / 100);
     $totalPrice -= $discountAmount;
 }
-
-// Debug: Log the discount amount
-error_log("Discount amount for user '{$currentUser}': {$discountAmount}€");
 
 // Calculate tax and final total
 $taxAmount = $totalPrice * $taxRate;

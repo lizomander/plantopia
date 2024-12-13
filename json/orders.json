@@ -123,6 +123,85 @@
         },
         "total": 107.1,
         "discount": 0,
-        "timestamp": "2024-12-13 18:35:48"
+        "timestamp": "2024-12-13 18:35:48",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": "11"
+        },
+        "total": 196.35,
+        "discount": 0,
+        "timestamp": "2024-12-13 19:52:15",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": "5"
+        },
+        "total": 84.7875,
+        "discount": 0.05,
+        "timestamp": "2024-12-13 19:56:39",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "2": "20"
+        },
+        "total": 113.05,
+        "discount": 0.05,
+        "timestamp": "2024-12-13 19:57:48",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": "13"
+        },
+        "total": 220.4475,
+        "discount": 0.05,
+        "timestamp": "2024-12-13 19:58:18",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": "13"
+        },
+        "total": 208.845,
+        "discount": 0.1,
+        "timestamp": "2024-12-13 20:02:50",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": "19"
+        },
+        "total": 305.235,
+        "discount": 0.1,
+        "timestamp": "2024-12-13 20:06:26",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "2": "12"
+        },
+        "total": 64.26,
+        "discount": 0.1,
+        "timestamp": "2024-12-13 20:08:11",
+        "status": "canceled",
+        "rejection_reason": "Canceled by user"
     }
 ]
