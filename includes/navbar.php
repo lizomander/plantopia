@@ -13,10 +13,9 @@
                 <div class="right-links">
                     <a href="login.php" class="header-link">Login</a>
                     <a href="registration.php" class="header-link">Register</a>
-
                     <div class="cart-icon">
                         <a href="shoppingCart.php">
-                            <i class="fas fa-shopping-cart" style="font-size: 20px;"></i>
+                            <img id="cart-icon" src="./images/ShoppingCartIcon.png" alt="Shopping Cart" width="40">
                         </a>
                     </div>
                 </div>
