@@ -6,7 +6,7 @@
         <div class="header-links">
             <div class="header-links-wrapper">
                 <div class="left-links">
-                    <a href="customer.php" class="header-link">Profile</a>
+                    <a href="user.php" class="header-link">Profile</a>
                     <a href="logout.php" class="header-link">Logout</a>
                 </div>
 
@@ -15,7 +15,7 @@
                     <a href="registration.php" class="header-link">Register</a>
                     <div class="cart-icon">
                         <a href="shoppingCart.php">
-                            <img id="cart-icon" src="./images/ShoppingCartIcon.png" alt="Shopping Cart" width="40">
+                            <img id="cart-icon" src="./img/ShoppingCartIcon.png" alt="Shopping Cart" width="40">
                         </a>
                     </div>
                 </div>

@@ -5,7 +5,8 @@
             "1": "8"
         },
         "total": 142.79999999999998,
-        "timestamp": "2024-12-10 00:06:21"
+        "timestamp": "2024-12-10 00:06:21",
+        "status": "ordered"
     },
     {
         "user": "Ahsan",
@@ -13,7 +14,8 @@
             "4": "6"
         },
         "total": 214.2,
-        "timestamp": "2024-12-11 17:13:34"
+        "timestamp": "2024-12-11 17:13:34",
+        "status": "ordered"
     },
     {
         "user": "Ahsan",
@@ -22,7 +24,8 @@
             "4": "7"
         },
         "total": 339.15,
-        "timestamp": "2024-12-11 17:58:35"
+        "timestamp": "2024-12-11 17:58:35",
+        "status": "ordered"
     },
     {
         "user": "Hassan",
@@ -31,7 +34,8 @@
             "8": "4"
         },
         "total": 291.55,
-        "timestamp": "2024-12-11 19:43:18"
+        "timestamp": "2024-12-11 19:43:18",
+        "status": "ordered"
     },
     {
         "user": "Hassan",
@@ -39,7 +43,8 @@
             "1": "5"
         },
         "total": 89.25,
-        "timestamp": "2024-12-11 20:23:44"
+        "timestamp": "2024-12-11 20:23:44",
+        "status": "ordered"
     },
     {
         "user": "Hassan",
@@ -47,7 +52,8 @@
             "1": "3"
         },
         "total": 53.55,
-        "timestamp": "2024-12-11 20:50:28"
+        "timestamp": "2024-12-11 20:50:28",
+        "status": "ordered"
     },
     {
         "user": "Hassan",
@@ -55,7 +61,8 @@
             "4": "5"
         },
         "total": 178.5,
-        "timestamp": "2024-12-11 23:54:54"
+        "timestamp": "2024-12-11 23:54:54",
+        "status": "ordered"
     },
     {
         "user": "plantlover420",
@@ -63,6 +70,17 @@
             "4": "1"
         },
         "total": 35.699999999999996,
-        "timestamp": "2024-12-12 13:23:59"
+        "timestamp": "2024-12-12 13:23:59",
+        "status": "ordered"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "3": "10",
+            "1": "10"
+        },
+        "total": 190.39999999999998,
+        "discount": 0.2,
+        "timestamp": "2024-12-13 16:05:53"
     }
 ]

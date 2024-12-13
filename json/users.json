@@ -1,18 +1,28 @@
 [
     {
         "username": "Hussain",
-        "password": "$2y$10$kcL5m9\/qvnVg4.\/oQL6nfOAPw2ZmZm4Iijq4ksWnmlMB4QK7RLkf."
+        "password": "$2y$10$kcL5m9\/qvnVg4.\/oQL6nfOAPw2ZmZm4Iijq4ksWnmlMB4QK7RLkf.",
+        "role": "customer"
     },
     {
         "username": "Ahsan",
-        "password": "$2y$10$Z2bqbNdCshS89CIyRXC22eFqskOGZBCcyJnkIO\/vrLq18yFSswCnC"
+        "password": "$2y$10$Z2bqbNdCshS89CIyRXC22eFqskOGZBCcyJnkIO\/vrLq18yFSswCnC",
+        "role": "customer"
     },
     {
         "username": "Hassan",
-        "password": "$2y$10$HLefYZIBQu97sTzEhW7.guP2Mcxr9.UGDA.761kUDP0myfdRGyjtW"
+        "password": "$2y$10$HLefYZIBQu97sTzEhW7.guP2Mcxr9.UGDA.761kUDP0myfdRGyjtW",
+        "role": "customer"
     },
     {
-        "username": "plantlover420",
-        "password": "$2y$10$.v9dJo3EqIVhJWH\/NGoYJO.Idym2xCfE47Yf3EdfgR4jpuLBCzfXO"
+        "username": "Plantlover420",
+        "password": "$2y$10$V.RETKUE5qnJ9ljmNHIGLuZZtyp3ShYrUmWoXn8BOnyoM5wieXH16",
+        "role": "admin"
+    },
+    {
+        "username": "NewCustomer",
+        "password": "$2y$10$WY1ka1x8vYD0t\/r7H7jTM.YsASYCWAtz7OQXg0XLTneh1c.cLqNse",
+        "role": "customer",
+        "blocked": false
     }
 ]

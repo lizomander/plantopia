@@ -4,29 +4,29 @@ include('includes/header.php');
 include('includes/navbar.php');
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+$usersFile = 'json/users.json';
+$usersData = json_decode(file_get_contents($usersFile), true);
 
-    if (empty($username) || empty($password)) {
-        echo "Both fields are required!";
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+$userFound = false;
+
+foreach ($usersData as $user) {
+    if ($user['username'] === $username && password_verify($password, $user['password'])) {
+        $userFound = true;
+        $_SESSION['user'] = $user['username'];
+        $_SESSION['role'] = $user['role']; // Save role in session
+        if ($user['role'] === 'admin') {
+            header('Location: admin.php');
+        } else {
+            header('Location: user.php');
+        }
         exit;
     }
+}
 
-    // Load users from JSON
-    $usersFile = './json/users.json';
-    $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
-
-    foreach ($users as $user) {
-        if ($user['username'] === $username && password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $username;
-            header('Location: shoppingCart.php');
-            exit;
-        }
-    }
-
-    echo "Invalid username or password!";
-    exit;
+if (!$userFound) {
+    echo "Invalid username or password.";
 }
 ?>
 <body>
