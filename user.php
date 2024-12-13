@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -26,8 +25,9 @@ if (file_exists($ordersFile)) {
     $ordersData = json_decode(file_get_contents($ordersFile), true);
 }
 
+// Filter orders for the current user
 $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
-    return $order['user'] === $currentUser;
+    return isset($order['user']) && $order['user'] === $currentUser;
 });
 ?>
 <body>
@@ -71,13 +71,13 @@ $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
                     <tbody>
                     <?php foreach ($userOrders as $index => $order): ?>
                         <tr>
-                            <td><?= htmlspecialchars($order['order_id']) ?></td>
+                            <td><?= htmlspecialchars($index) ?></td>
                             <td>
                                 <?php foreach ($order['cart'] as $productId => $quantity): ?>
                                     <p><?= htmlspecialchars($productsData[$productId] ?? 'Unknown Product') ?>: <?= $quantity ?> pcs</p>
                                 <?php endforeach; ?>
                             </td>
-                            <td><?= number_format($order['total'], 2) ?>&nbsp;€</td>
+                            <td>€<?= number_format($order['total'], 2) ?></td>
                             <td>
                                 <?php if ($order['status'] === 'canceled'): ?>
                                     <span class="badge bg-danger">Canceled</span>
@@ -88,7 +88,7 @@ $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
                             </td>
                             <td><?= htmlspecialchars($order['timestamp']) ?></td>
                             <td>
-                                <?php if ($order['status'] === 'ordered'): ?>
+                                <?php if (!in_array($order['status'], ['shipped', 'finished', 'canceled'])): ?>
                                     <form action="cancelOrder.php" method="POST" style="display:inline;">
                                         <input type="hidden" name="order_id" value="<?= $index ?>">
                                         <button type="submit" class="btn btn-danger btn-sm">Cancel Order</button>

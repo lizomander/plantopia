@@ -29,41 +29,47 @@ foreach ($cart as $pid => $quantity) {
     }
 }
 
-// Calculate total quantity in the cart
-$totalQuantity = array_sum($cart);
+// Load discounts.json and orders.json
+$discountsFile = './json/discounts.json';
+$discountsData = json_decode(file_get_contents($discountsFile), true);
+$ordersFile = './json/orders.json';
+$orders = file_exists($ordersFile) ? json_decode(file_get_contents($ordersFile), true) : [];
 
-// Apply discount based on the total quantity of items in the cart
+// Get current user and their order count
+$currentUser = $_SESSION['user'];
+$orderCount = count(array_filter($orders, function ($order) use ($currentUser) {
+    return $order['user'] === $currentUser;
+}));
+
+// Determine the applicable discount
 $discount = 0;
-if ($totalQuantity >= 20) {
-    $discount = 0.2; // 20% discount for 20 or more items
-} elseif ($totalQuantity >= 10) {
-    $discount = 0.1; // 10% discount for 10 or more items
+foreach ($discountsData['discounts'] as $rule) {
+    if ($orderCount >= $rule['threshold']) {
+        $discount = max($discount, $rule['percentage']);
+    }
 }
 
 // Calculate discount and apply to the total price
 $totalPriceBeforeDiscount = $totalPrice;
+$discountAmount = 0;
 if ($discount > 0) {
-    $discountAmount = $totalPrice * $discount;
+    $discountAmount = $totalPrice * ($discount / 100);
     $totalPrice -= $discountAmount;
 }
 
 // Calculate tax and final total
-$totalWithTax = $totalPrice * (1 + $taxRate);
+$taxAmount = $totalPrice * $taxRate;
+$totalWithTax = $totalPrice + $taxAmount;
 
-// Prepare the order
+// Save the order
 $order = [
-    'user' => $_SESSION['user'],
+    'user' => $currentUser,
     'cart' => $cart,
     'total' => $totalWithTax,
-    'discount' => $discount,
+    'discount' => $discount / 100, // Save discount as a fraction
     'timestamp' => date('Y-m-d H:i:s'),
 ];
-
-// Save the order to the orders file
-$ordersFile = './json/orders.json';
-$orders = file_exists($ordersFile) ? json_decode(file_get_contents($ordersFile), true) : [];
 $orders[] = $order;
-
 file_put_contents($ordersFile, json_encode($orders, JSON_PRETTY_PRINT));
 
 // Clear the cart session
@@ -95,7 +101,7 @@ unset($_SESSION['cart']);
                     <?php if ($discount > 0): ?>
                     <tr>
                         <td><strong>Discount Applied:</strong></td>
-                        <td>-<?php echo number_format($discountAmount, 2); ?>€ (<?php echo $discount * 100; ?>%)</td>
+                        <td>-<?php echo number_format($discountAmount, 2); ?>€</td>
                     </tr>
                     <?php endif; ?>
                     <tr>
@@ -104,7 +110,7 @@ unset($_SESSION['cart']);
                     </tr>
                     <tr>
                         <td><strong>Tax (19%):</strong></td>
-                        <td><?php echo number_format($totalPrice * $taxRate, 2); ?>€</td>
+                        <td><?php echo number_format($taxAmount, 2); ?>€</td>
                     </tr>
                     <tr>
                         <td><strong>Final Total:</strong></td>
@@ -116,8 +122,6 @@ unset($_SESSION['cart']);
             </div>
         </div>
     </main>
-    <?php
-    include('includes/footer.php'); 
-    ?>
+    <?php include('includes/footer.php'); ?>
 </body>
 </html>

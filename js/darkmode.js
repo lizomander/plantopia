@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
 
+    // DARK MODE TOGGLE
     let isDarkMode = localStorage.getItem("darkMode") === "true";
 
     if (isDarkMode) {
@@ -36,4 +37,66 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         isDarkMode = !isDarkMode;
     }
+
+    // LAYOUT TOGGLE
+    let isMobileLayout = false; // Default to desktop layout
+
+    const layoutToggleButton = document.createElement("button");
+    layoutToggleButton.innerHTML = "📱"; // Default to phone icon
+    layoutToggleButton.onclick = toggleLayout;
+    layoutToggleButton.style.position = "fixed";
+    layoutToggleButton.style.bottom = "60px"; // Slightly above dark mode button
+    layoutToggleButton.style.right = "10px";
+    layoutToggleButton.style.zIndex = "1000";
+    layoutToggleButton.style.padding = "10px 15px";
+    layoutToggleButton.style.backgroundColor = "#444";
+    layoutToggleButton.style.color = "#fff";
+    layoutToggleButton.style.border = "none";
+    layoutToggleButton.style.borderRadius = "50%";
+    layoutToggleButton.style.cursor = "pointer";
+    layoutToggleButton.style.fontSize = "20px";
+
+    document.body.appendChild(layoutToggleButton);
+
+    function toggleLayout() {
+        console.log("Toggling layout..."); // Debugging
+        if (isMobileLayout) {
+            body.classList.remove("mobile-layout");
+            layoutToggleButton.innerHTML = "📱"; // Change icon to phone
+        } else {
+            body.classList.add("mobile-layout");
+            layoutToggleButton.innerHTML = "🖥️"; // Change icon to desktop
+        }
+        isMobileLayout = !isMobileLayout;
+    }
+
+    // DROPDOWN TOGGLE LOGIC
+    const navItems = document.querySelectorAll("nav ul li");
+
+    // Handle dropdown behavior for desktop and mobile layouts
+    navItems.forEach((item) => {
+        const dropdown = item.querySelector("ul"); // Submenu inside this <li>
+
+        if (dropdown) {
+            item.addEventListener("mouseenter", () => {
+                if (!body.classList.contains("mobile-layout")) {
+                    dropdown.style.display = "block"; // Show dropdown on hover in desktop
+                }
+            });
+
+            item.addEventListener("mouseleave", () => {
+                if (!body.classList.contains("mobile-layout")) {
+                    dropdown.style.display = "none"; // Hide dropdown on hover out in desktop
+                }
+            });
+
+            item.addEventListener("click", (e) => {
+                if (body.classList.contains("mobile-layout")) {
+                    e.preventDefault(); // Prevent navigation if dropdown exists
+                    dropdown.style.display =
+                        dropdown.style.display === "block" ? "none" : "block"; // Toggle dropdown
+                }
+            });
+        }
+    });
 });

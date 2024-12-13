@@ -30,12 +30,6 @@ session_destroy();
             </p>
         </section>
     </div>
-    <script>
-        // Redirect to login.php after 5 seconds
-        setTimeout(() => {
-            window.location.href = "login.php";
-        }, 5000);
-    </script>
 </body>
 <?php include('footer.php') ?>
 </html>
