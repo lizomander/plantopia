@@ -5,8 +5,12 @@ session_start();
 $wishlistFile = './json/wishlists.json';
 $wishlists = file_exists($wishlistFile) ? json_decode(file_get_contents($wishlistFile), true) : [];
 
+// Load products.json for product details (assuming a JSON file with product details)
+$productFile = './json/products.json';
+$products = file_exists($productFile) ? json_decode(file_get_contents($productFile), true) : [];
+
 // Get the current user
-$currentUser = $_SESSION['user'];
+$currentUser = $_SESSION['user'] ?? 'guest';
 
 // Initialize the user's wishlist if not already set
 if (!isset($wishlists[$currentUser])) {
@@ -28,23 +32,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($pid && !in_array($pid, $wishlists[$currentUser])) {
             $wishlists[$currentUser][] = $pid;
             file_put_contents($wishlistFile, json_encode($wishlists, JSON_PRETTY_PRINT));
-            echo json_encode(['status' => 'success', 'message' => 'Product added to your wishlist!']);
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Product is already in your wishlist!']);
+            echo json_encode(['status' => 'success', 'message' => 'Added to wishlist!', 'pid' => $pid]);
+            exit;
         }
     }
 
     // Handle remove action
     if ($action === 'remove') {
-        if ($pid && ($key = array_search($pid, $wishlists[$currentUser])) !== false) {
+        if (($key = array_search($pid, $wishlists[$currentUser])) !== false) {
             unset($wishlists[$currentUser][$key]);
-            $wishlists[$currentUser] = array_values($wishlists[$currentUser]); // Re-index array
+            $wishlists[$currentUser] = array_values($wishlists[$currentUser]); // Reindex array
             file_put_contents($wishlistFile, json_encode($wishlists, JSON_PRETTY_PRINT));
-            echo json_encode(['status' => 'success', 'message' => 'Product removed from your wishlist!']);
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Product not found in wishlist!']);
+            echo json_encode(['status' => 'success', 'message' => 'Removed from wishlist!', 'pid' => $pid]);
+            exit;
         }
     }
+}
+
+// Handle GET requests to fetch the wishlist
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $userWishlist = $wishlists[$currentUser] ?? [];
+    $detailedWishlist = array_map(function ($pid) use ($products) {
+        return $products[$pid] ?? null;
+    }, $userWishlist);
+
+    echo json_encode(['status' => 'success', 'wishlist' => array_filter($detailedWishlist)]);
     exit;
 }
 

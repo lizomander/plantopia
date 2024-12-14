@@ -6,6 +6,13 @@
     margin: 15px 0;
     padding: 10px;
     background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wishlist-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .wishlist-image {
@@ -17,6 +24,17 @@
 
 .wishlist-details {
     flex-grow: 1;
+}
+
+.wishlist-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+
+.wishlist-price {
+    font-size: 1em;
+    color: #555;
 }
 
 .btn {
@@ -35,4 +53,17 @@
 .btn-add-to-cart {
     background-color: #28a745;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .wishlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wishlist-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
 }
