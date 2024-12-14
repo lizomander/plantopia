@@ -26,4 +26,5 @@
     <script src="/js/topButton.js" defer></script>
     <script src="/js/validation.js" defer></script>
     <script src="/js/welcome.js" defer></script>
+    <script src="./js/wishlist.js"></script>
 </footer>

@@ -73,6 +73,31 @@ include('includes/navbar.php');
                 </div>
             </section>
 
+            <!-- Wishlist Heart Icon -->
+            <div class="wishlist-icon-container">
+                <?php
+                // Check if the product is in the user's wishlist
+                $wishlistFile = './json/wishlists.json';
+                $wishlists = file_exists($wishlistFile) ? json_decode(file_get_contents($wishlistFile), true) : [];
+                $currentUser = $_SESSION['user'];
+                $userWishlist = $wishlists[$currentUser] ?? [];
+
+                // Determine whether this product is in the wishlist
+                $isInWishlist = in_array($product['pid'], $userWishlist);
+                ?>
+                <button 
+                    class="wishlist-btn" 
+                    data-pid="<?php echo $product['pid']; ?>" 
+                    data-in-wishlist="<?php echo $isInWishlist ? 'true' : 'false'; ?>"
+                >
+                    <img 
+                        id="wishlist-icon-<?php echo $product['pid']; ?>" 
+                        src="<?php echo $isInWishlist ? './img/heart-filled.png' : './img/heart-empty.png'; ?>" 
+                        alt="Wishlist Icon" 
+                    >
+                </button>
+            </div>
+
             <?php
                 $mainCategory = $product['category'];
                 $subCategory = $product['subcategory'] ?? null;
@@ -152,6 +177,40 @@ include('includes/navbar.php');
                 }
             })
             .catch(error => console.error('Error fetching cart status:', error));
+        
+        // Handle Wishlist Heart Toggle
+        document.querySelectorAll('.wishlist-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const pid = this.getAttribute('data-pid');
+                const isInWishlist = this.getAttribute('data-in-wishlist') === 'true';
+                const icon = document.getElementById(`wishlist-icon-${pid}`);
+
+                // Send the toggle request to wishlist.php
+                fetch('wishlist.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `pid=${pid}&action=${isInWishlist ? 'remove' : 'add'}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Toggle the heart icon
+                        if (isInWishlist) {
+                            icon.src = './img/heart-empty.png';
+                            this.setAttribute('data-in-wishlist', 'false');
+                        } else {
+                            icon.src = './img/heart-filled.png';
+                            this.setAttribute('data-in-wishlist', 'true');
+                        }
+                    } else {
+                        console.error('Failed to update wishlist:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating wishlist:', error);
+                });
+            });
+        });
     </script>
 </body>
 </html>

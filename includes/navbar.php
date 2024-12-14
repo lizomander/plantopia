@@ -7,6 +7,7 @@
             <div class="header-links-wrapper">
                 <div class="left-links">
                     <a href="user.php" class="header-link">Profile</a>
+                    <a href="wishlist.php">Wishlist</a>
                     <a href="logout.php" class="header-link">Logout</a>
                 </div>
 
