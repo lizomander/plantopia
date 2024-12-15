@@ -45,17 +45,25 @@
         </div>
     </div>
     <script>
-        // Update cart icon based on session data
-        fetch('cartStatus.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data.hasItems) {
-                    document.getElementById('cart-icon').src = './images/ShoppingCartIconFilled.png';
-                } else {
-                    document.getElementById('cart-icon').src = './images/ShoppingCartIcon.png';
-                }
-            })
-            .catch(error => console.error('Error fetching cart status:', error));
+        function updateCartIcon() {
+            fetch('cartStatus.php?status=json')
+                .then(response => response.json())
+                .then(data => {
+                    const cartIcon = document.getElementById('cart-icon');
+
+                    if (data.hasItems) {
+                        // Change to filled icon
+                        cartIcon.src = './img/ShoppingCartIconFilled.png';
+                    } else {
+                        // Change to empty icon
+                        cartIcon.src = './img/ShoppingCartIcon.png';
+                    }
+                })
+                .catch(error => console.error('Error updating cart icon:', error));
+        }
+
+        // Call this function on page load
+        updateCartIcon();
     </script>
 
 </body>
