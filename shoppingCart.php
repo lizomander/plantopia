@@ -6,27 +6,33 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
+// Load products
 $data = json_decode(file_get_contents('./json/data.json'), true);
 $products = [];
 foreach ($data['products'] as $product) {
     $products[$product['pid']] = $product;
 }
 
-// Load cart
-$cart = $_SESSION['cart'] ?? [];
+// Load cart from cart.json
+$cartFile = './json/cart.json';
+$carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
+$currentUser = $_SESSION['user'];
+$userCart = $carts[$currentUser] ?? [];
 
+// Sync cart with session (optional but recommended for consistency)
+$_SESSION['cart'] = $userCart;
+
+// Calculate total price and other details
 $totalPrice = 0;
 $taxRate = 0.19;
 
-// Calculate total price of items in the cart
-foreach ($cart as $pid => $quantity) {
+foreach ($userCart as $pid => $quantity) {
     if (isset($products[$pid])) {
         $totalPrice += $products[$pid]['price'] * $quantity;
     }
 }
 
-// Calculate total quantity in the cart
-$totalQuantity = array_sum($cart);
+$totalQuantity = array_sum($userCart);
 
 // Load discounts.json
 $discountsFile = './json/discounts.json';
@@ -60,12 +66,12 @@ include('includes/header.php');
     <div class="container">
         <div class="cart-container">
             <div class="cart-header">Shopping Cart</div>
-            <?php if (empty($cart)): ?>
+            <?php if (empty($userCart)): ?>
                 <div class="cart-item">
                     <p>Your cart is empty! <a href="index.php">Continue Shopping</a></p>
                 </div>
             <?php else: ?>
-                <?php foreach ($cart as $pid => $quantity): 
+                <?php foreach ($userCart as $pid => $quantity): 
                     $product = $products[$pid];
                     $itemTotal = $product['price'] * $quantity;
                 ?>
@@ -86,8 +92,8 @@ include('includes/header.php');
                         </div>
                     </div>
                     <div class="cart-item-actions">
-                        <p>Price/Item: <b><?php echo htmlspecialchars($product['price']); ?>€</p></b>
-                        <p>Total: <b><?php echo number_format($itemTotal, 2); ?>€</p></b>
+                        <p>Price/Item: <b><?php echo htmlspecialchars($product['price']); ?>€</b></p>
+                        <p>Total: <b><?php echo number_format($itemTotal, 2); ?>€</b></p>
                     </div>
                 </div>
                 <?php endforeach; ?>

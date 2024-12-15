@@ -203,5 +203,14 @@
         "timestamp": "2024-12-13 20:08:11",
         "status": "canceled",
         "rejection_reason": "Canceled by user"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": 5
+        },
+        "total": 84.7875,
+        "discount": 0.05,
+        "timestamp": "2024-12-14 23:44:15"
     }
 ]

@@ -44,4 +44,33 @@
             </nav>
         </div>
     </div>
+    <script>
+        function updateCartIcon() {
+            fetch('cartStatus.php?status=json')
+                .then(response => response.json())
+                .then(data => {
+                    const cartIcon = document.getElementById('cart-icon');
+                    const cartCountElement = document.getElementById('cart-count');
+
+                    if (data.hasItems) {
+                        // Change to filled icon and show the total count
+                        cartIcon.src = './img/ShoppingCartIconFilled.png';
+                        if (cartCountElement) {
+                            cartCountElement.textContent = data.totalItems; // Update the cart count
+                        }
+                    } else {
+                        // Change to empty icon and reset the count
+                        cartIcon.src = './img/ShoppingCartIcon.png';
+                        if (cartCountElement) {
+                            cartCountElement.textContent = '';
+                        }
+                    }
+                })
+                .catch(error => console.error('Error updating cart icon:', error));
+        }
+
+        // Call this function on page load
+        updateCartIcon();
+    </script>
+
 </body>

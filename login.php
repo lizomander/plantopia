@@ -25,9 +25,6 @@ foreach ($usersData as $user) {
     }
 }
 
-if (!$userFound) {
-    echo "Invalid username or password.";
-}
 ?>
 <body>
     <div class="container">

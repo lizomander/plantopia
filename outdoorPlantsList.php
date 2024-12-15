@@ -5,18 +5,6 @@
 ?>
 <body>
     <div>
-        <div class="header-links">
-            <div class="header-links-wrapper">
-                <div>
-                    <a href="customer.php">Profile & Logout</a>
-                    <a href="shoppingCart.php">Shopping Cart</a>
-                </div>
-                <div>
-                    <a href="login.php">Login</a>
-                    <a href="registration.php">Register</a>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <h1>Outdoor Plants</h1>
             <p class="card-description">Select a category to explore our outdoor plants:</p>

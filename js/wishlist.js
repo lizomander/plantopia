@@ -1,12 +1,39 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Attach event listeners to all wishlist buttons
+    // Handle wishlist item removal
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent any default behavior
+
+            const pid = this.dataset.pid; // Get the product ID
+
+            // Send a request to remove the item
+            fetch('wishlist.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `pid=${pid}&action=remove`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Remove the item from the page
+                    const parentItem = this.closest('.wishlist-item');
+                    if (parentItem) parentItem.remove();
+                } else {
+                    console.error('Error removing item from wishlist:', data.message);
+                }
+            })
+            .catch(err => {
+                console.error('Network error:', err);
+            });
+        });
+    });
+
+    // Handle heart toggle (for the product page)
     document.querySelectorAll('.wishlist-btn').forEach(button => {
         button.addEventListener('click', function () {
-            const pid = this.dataset.pid; // Product ID
-            const action = this.dataset.action; // Current action (add/remove)
+            const pid = this.dataset.pid;
+            const action = this.dataset.action;
 
-            // Make a POST request to wishlist.php
             fetch('wishlist.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -14,39 +41,22 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
-                if (data.status === 'success') {
-                    // Update button state dynamically
+                if (data.success) {
+                    const img = this.querySelector('img');
                     if (action === 'add') {
                         this.dataset.action = 'remove';
-                        this.textContent = 'Remove from Wishlist';
-                    } else if (action === 'remove') {
+                        img.src = 'img/heart-filled.png';
+                    } else {
                         this.dataset.action = 'add';
-                        this.textContent = 'Add to Wishlist';
+                        img.src = 'img/heart-empty.png';
                     }
-
-                    // Show success notification
-                    showToast(data.message, 'success');
                 } else {
-                    // Show error notification
-                    showToast(data.message, 'error');
+                    console.error('Error updating wishlist:', data.message);
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                showToast('Something went wrong. Please try again.', 'error');
+            .catch(err => {
+                console.error('Network error:', err);
             });
         });
     });
-
-    // Function to show toast notifications
-    function showToast(message, type) {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
 });
