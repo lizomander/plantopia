@@ -19,10 +19,5 @@
         "password": "$2y$10$WY1ka1x8vYD0t\/r7H7jTM.YsASYCWAtz7OQXg0XLTneh1c.cLqNse",
         "role": "customer",
         "blocked": false
-    },
-    {
-        "username": "Hussain",
-        "password": "$2y$10$mpymfVS3YJflNMXUqvPgR..w\/oHM5\/K.8FEDtvlwmi\/ZnN7pTQHAa",
-        "role": "admin"
     }
 ]
