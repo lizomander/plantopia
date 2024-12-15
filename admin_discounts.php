@@ -1,11 +1,4 @@
 <?php
-session_start();
-
-// Check if the admin is logged in
-if (!isset($_SESSION['admin'])) {
-    header('Location: login.php');
-    exit;
-}
 
 // File to store discount settings
 $discountsFile = './json/discounts.json';
