@@ -88,3 +88,29 @@
     transform: scale(1.1);
     transition: transform 0.2s ease;
 }
+
+body.-mode .wishlist-item {
+    background: #333;
+    border: 1px solid #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.-mode .wishlist-item:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+body.-mode .wishlist-name {
+    color: #fff; /* Light text for contrast */
+}
+
+body.-mode .wishlist-price {
+    color: #ccc;
+}
+
+body.-mode .btn-remove {
+    background-color: #ff7373; /* Softer red for dark mode */
+}
+
+body.-mode .btn-add-to-cart {
+    background-color: #4caf50; /* Adjusted green for better contrast */
+}

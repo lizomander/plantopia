@@ -460,3 +460,28 @@ body.dark-mode .product-title {
     background-color: #45a049;
 }
 
+/* Dark Mode Adjustments for Design */
+body.-mode {
+    --bg-color: #0b3d0b;
+    --text-color: #79cf79;
+    --link-color: #4caf50;
+}
+
+body.-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.-mode .box {
+    background: linear-gradient(to bottom, #1a1a1a, #333333);
+    color: #ddd;
+}
+
+body.-mode a {
+    color: var(--link-color);
+}
+
+body.-mode .sale-banner {
+    background-color: #a1001b;
+    color: white;
+}

@@ -483,3 +483,27 @@ input[type="text"], input[type="password"] {
     background-color: #0056b3;
     transform: translateX(-50%) scale(1.1); 
 }
+
+body.-mode button {
+    background: radial-gradient(circle, #2e8b57, #004d00);
+    color: #d4f5d4;
+}
+
+body.-mode .cancel-button {
+    background: #444; /* Dark gray */
+    color: #ddd; /* Light gray text */
+}
+
+body.-mode .reset-button {
+    background: radial-gradient(circle, #ff4500, #8b0000);
+    color: #fff;
+}
+
+button:hover {
+    background: #006400;
+    transform: scale(1.05);
+}
+
+body.-mode button:hover {
+    background: #004d00;
+}

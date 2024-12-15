@@ -482,3 +482,19 @@ th, td {
     background-color: #f0f0f0;
     cursor: pointer;
 }
+
+body.-mode .logout-header h1 {
+    color: #ff7373;
+}
+
+body.-mode .goodbye-caption {
+    color: #aaa;
+}
+
+body.-mode a {
+    color: #4caf50;
+}
+
+body.-mode .return-home a {
+    color: #3399ff;
+}
