@@ -1,4 +1,6 @@
 <?php
+session_start();
+
     $pageTitle = "Plantopia | Indoor Plants";
     include('includes/header.php'); 
     include('includes/navbar.php');

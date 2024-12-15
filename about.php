@@ -1,4 +1,6 @@
 <?php
+session_start();
+
     $pageTitle = "Plantopia | About Us";
     include('includes/header.php');
     include('includes/navbar.php');
