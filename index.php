@@ -8,9 +8,6 @@ session_start();
     $products = array_column($data['products'], null, 'pid'); // Index products by pid
 ?>
 <body>
-    <header class="hero-banner">
-        <img src="/img/Title.png" alt="Welcome to Plantopia">
-    </header>
     <div id="welcome-message" class="welcome-message"></div>
     <div>
         <section class="slideshow">
