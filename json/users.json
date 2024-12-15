@@ -1,10 +1,5 @@
 [
     {
-        "username": "Ahsan",
-        "password": "$2y$10$Z2bqbNdCshS89CIyRXC22eFqskOGZBCcyJnkIO\/vrLq18yFSswCnC",
-        "role": "customer"
-    },
-    {
         "username": "Hassan",
         "password": "$2y$10$HLefYZIBQu97sTzEhW7.guP2Mcxr9.UGDA.761kUDP0myfdRGyjtW",
         "role": "customer"
