@@ -55,21 +55,6 @@ foreach ($usersData as $user) {
     <button id="back-to-top" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px; font-size:24px; cursor:pointer; background-color:#007BFF; color:white; border:none; border-radius:50%; height:50px; width:50px;">
         ↑
     </button>
-    <footer>
-        <div class="footer-logo">
-            <img src="./img/1.png" alt="Plantopia Logo" class="footer-logo-img">
-        </div>
-        <p>&copy; 2024 Plantopia. All rights reserved.</p>
-        <p>Contact us at <a href="mailto:info@plantopia.com">info@plantopia.com</a></p>
-        <ul>
-            <li><a href="privacy.php">Privacy Policy</a></li>
-            <li><a href="terms.php">Terms of Service</a></li>
-        </ul>
-    </footer>
-    <script src="./javascript/darkmode.js"></script>
-    <script src="./javascript/topButton.js"></script>
+    <?php include('includes/footer.php')?>
 </body>
 </html>
-<?php
-    include('footer.php')
-?>

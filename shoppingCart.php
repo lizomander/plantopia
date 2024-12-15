@@ -110,6 +110,6 @@ include('includes/header.php');
             <?php endif; ?>
         </div>
     </div>
-    <?php include('footer.php'); ?>
+    <?php include('includes/footer.php')?>
 </body>
 </html>
