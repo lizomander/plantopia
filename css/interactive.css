@@ -1,3 +1,30 @@
+/* Mobile-First Default Styles */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+}
+
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        line-height: 2;
+        padding: 20px;
+    }
+}
+
 /* BUTTON */
 
 /* Shared Button Styling */
@@ -337,6 +364,10 @@ form label {
     color: #333;
 }
 
+body.dark-mode form label {
+    color: #ccc;
+}
+
 form input {
     width: 100%;
     padding: 10px;
@@ -483,15 +514,15 @@ input[type="text"], input[type="password"] {
     background-color: #0056b3;
     transform: translateX(-50%) scale(1.1); 
 }
-
+/* Dark Mode Adjustments for Buttons */
 body.-mode button {
     background: radial-gradient(circle, #2e8b57, #004d00);
     color: #d4f5d4;
 }
 
 body.-mode .cancel-button {
-    background: #444; /* Dark gray */
-    color: #ddd; /* Light gray text */
+    background: #444;
+    color: #ddd;
 }
 
 body.-mode .reset-button {
@@ -499,11 +530,18 @@ body.-mode .reset-button {
     color: #fff;
 }
 
-button:hover {
-    background: #006400;
+/* Hover Effects for Dark Mode */
+body.-mode button:hover {
+    background: #004d00;
     transform: scale(1.05);
 }
 
-body.-mode button:hover {
-    background: #004d00;
+body.mobile-layout .container {
+    width: 90%;
+    max-width: 600px;
+}
+
+body:not(.mobile-layout) .container {
+    width: 90%;
+    max-width: 1200px;
 }

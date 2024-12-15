@@ -1,3 +1,30 @@
+/* Mobile-First Default Styles */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+}
+
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        line-height: 2;
+        padding: 20px;
+    }
+}
+
 /* LOGOUT */
 
 /* Logout Page Header */
@@ -482,7 +509,7 @@ th, td {
     background-color: #f0f0f0;
     cursor: pointer;
 }
-
+/* Dark Mode Adjustments for Pages */
 body.-mode .logout-header h1 {
     color: #ff7373;
 }

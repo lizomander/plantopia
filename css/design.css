@@ -1,17 +1,43 @@
+/* Mobile-First Default Styles */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #c6f3b4;
+    color: #142517;
+}
+
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+}
+
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        line-height: 2;
+        padding: 20px;
+    }
+}
+
 
 /* General Styling */
 body {
     margin: 0;
     padding: 0;
     font-family: Montserrat, sans-serif;
-    color: #333; /* Default text color */
-    background-color: #ffffff; /* Light mode background */
-    line-height: 1.6; /* Better readability */
+    color: #142517;
+    background-color: #c6f3b4;
+    line-height: 1.6;
 }
-
 body.-mode {
-    background-color: #0b3d0b; /* Dark green background for dark mode */
-    color: #79cf79; /* Light green text for readability */
+    background-color: #2a492a; 
+    color: #79cf79;
 }
 
 /* BANNERS */
@@ -60,40 +86,41 @@ body.dark-mode .box {
 }
 
 .header-links {
-    background: #f8f9fa; /* Light background */
-    padding: 10px 0; /* Reduce padding for better centering */
+    background: #f8f9fa;
+    padding: 10px 0;
     display: flex;
-    justify-content: space-between; /* Push left and right links to edges */
-    align-items: center; /* Center content vertically */
-    border-bottom: 1px solid #ddd; /* Subtle divider */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
 }
 
 .header-links-wrapper {
     display: flex;
-    justify-content: space-between; /* Push left and right sections apart */
-    align-items: center; /* Center links vertically */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 100%; /* Ensure full height alignment */
+    height: 100%;
 }
 
 .left-links,
 .right-links {
     display: flex;
-    align-items: center; /* Vertically center links */
-    gap: 20px; /* Space between links */
+    align-items: center;
+    gap: 20px;
+    padding: 3%;
 }
 
 .header-link {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    color: #4CAF50; /* Green text */
+    color: #4CAF50;
     transition: color 0.3s ease;
-    line-height: 1; /* Reset line height to align text */
+    line-height: 1;
 }
 
 .header-link:hover {
-    color: #3e8e41; /* Darker green on hover */
+    color: #3e8e41;
 }
 
 body.dark-mode {
@@ -113,11 +140,11 @@ body.dark-mode .header-links {
 }
 
 body.dark-mode .header-link {
-    color: #85e085; /* Softer green for links in dark mode */
+    color: #85e085;
 }
 
 body.dark-mode .header-link:hover {
-    color: #d4f5d4; /* Brighter green on hover */
+    color: #d4f5d4;
 }
 
 /* Responsive Design */
@@ -135,20 +162,31 @@ body.dark-mode .header-link:hover {
 
 /* Cards Example */
 .card {
-    background: #ffffff; /* White for light mode */
-    border-radius: 10px; /* Rounded corners */
+    background: #c6f3b4;
+    border-radius: 10px;
     padding: 20px;
-    margin: 20px 0; /* Vertical spacing */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
+    margin: 20px 0; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: scale(1.02); /* Slight zoom */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
-
 body.dark-mode .card {
+    background: #1a4c1a; /* Darker green background */
+    box-shadow: none; /* Flat design in dark mode */
+}
+.card-wrapper {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0; /* Vertical spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
+}
+body.dark-mode .card-wrapper {
     background: #1a4c1a; /* Darker green background */
     box-shadow: none; /* Flat design in dark mode */
 }

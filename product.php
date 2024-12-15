@@ -61,7 +61,6 @@ $userWishlist = $wishlists[$currentUser] ?? [];
 
 $pageTitle = "Plantopia | Products";
 include('includes/header.php'); 
-include('includes/navbar.php');
 ?>
 <body>
     <div class="container">
@@ -112,7 +111,14 @@ include('includes/navbar.php');
                     >
                 </button>
             </div>
-            <form method="post" action="rateProduct.php">
+            <?php
+            $averageRating = $product['ratings']['count'] > 0 
+                ? $product['ratings']['total'] / $product['ratings']['count'] 
+                : 0;
+
+            echo "<p>Average Rating: " . number_format($averageRating, 1) . " / 5</p>";
+            ?>
+            <form class="card-wrapper" method="post" action="rateProduct.php">
                 <input type="hidden" name="pid" value="<?php echo htmlspecialchars($product['pid']); ?>">
                 <label for="rating">Rate this product:</label>
                 <select name="rating" id="rating" required>
@@ -126,16 +132,7 @@ include('includes/navbar.php');
             </form>
         <?php endforeach; ?>
     </div>
-    <?php
-    $averageRating = $product['ratings']['count'] > 0 
-        ? $product['ratings']['total'] / $product['ratings']['count'] 
-        : 0;
-
-    echo "<p>Average Rating: " . number_format($averageRating, 1) . " / 5</p>";
-    ?>
-
-    <?php include('footer.php'); ?>
-
+    <p><a href="index.php">Return to Homepage</a></p>
     <script>
         // Quantity adjustment for each product
         <?php foreach ($productsToShow as $product): ?>
@@ -212,5 +209,6 @@ include('includes/navbar.php');
             });
         });
     </script>
+    <?php include('includes/footer.php'); ?>
 </body>
 </html>

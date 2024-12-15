@@ -12,7 +12,7 @@ $subCategory = $_GET['sub'] ?? null;
 if (!$mainCategory || !$subCategory) {
     echo "<h1>Category or Subcategory not specified!</h1>";
     echo "<p><a href='index.php'>Return to Homepage</a></p>";
-    include('footer.php');
+    include('includes/footer.php');
     exit;
 }
 
@@ -22,8 +22,9 @@ $filteredProducts = array_filter($products, function ($product) use ($mainCatego
 
 if (empty($filteredProducts)) {
     echo "<h1>No products found in this subcategory.</h1>";
+    echo "<p><a href='index.php'>Back to Categories</a></p>";
     echo "<p><a href='index.php'>Return to Homepage</a></p>";
-    include('footer.php');
+    include('includes/footer.php');
     exit;
 }
 
@@ -37,5 +38,5 @@ foreach ($filteredProducts as $product) {
 echo "<p><a href='index.php'>Back to Categories</a></p>";
 echo "<p><a href='index.php'>Return to Homepage</a></p>";
 
-include('footer.php');
+include('includes/footer.php');
 ?>
