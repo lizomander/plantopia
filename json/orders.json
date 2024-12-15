@@ -262,7 +262,11 @@
         "total": 17.85,
         "discount": 0,
         "timestamp": "2024-12-15 19:17:17",
-        "status": "ordered"
+        "status": "canceled",
+        "rejection_reason": "Canceled by user",
+        "canceled_products": [
+            "Monstera (Monstera deliciosa) - The Swiss Cheese Star"
+        ]
     },
     {
         "user": "Hi1mnew",
@@ -272,7 +276,11 @@
         "total": 17.85,
         "discount": 0,
         "timestamp": "2024-12-15 19:24:12",
-        "status": "ordered"
+        "status": "canceled",
+        "rejection_reason": "Canceled by user",
+        "canceled_products": [
+            "Monstera (Monstera deliciosa) - The Swiss Cheese Star"
+        ]
     },
     {
         "user": "Hi1mnew",
@@ -282,6 +290,10 @@
         "total": 17.85,
         "discount": 0,
         "timestamp": "2024-12-15 19:28:28",
-        "status": "ordered"
+        "status": "canceled",
+        "rejection_reason": "Canceled by user",
+        "canceled_products": [
+            "Monstera (Monstera deliciosa) - The Swiss Cheese Star"
+        ]
     }
 ]

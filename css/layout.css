@@ -254,12 +254,14 @@ header p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     text-align: center;
-    width: 200px;
+    flex: 1 1 calc(25% - 20px);
+    max-width: 400px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space out content vertically */
+    justify-content: space-between;
     align-items: center;
-    min-height: 350px; /* Set a consistent height for all cards */
+    min-height: 350px;
 }
 
 .team-photo {
@@ -298,6 +300,47 @@ header p {
     text-align: center;
     font-size: 24px;
     color: #228b22;
+}
+
+body.dark-mode header h1 {
+    color: #90ee90;
+}
+
+body.dark-mode header p {
+    color: #ccc;
+}
+
+body.dark-mode .about-card {
+    background: #333;
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .team-photo {
+    border: 2px solid #555;
+}
+
+body.dark-mode .contact-section {
+    background-color: #444;
+    color: #f1f1f1;
+    border: 1px solid #555;
+}
+
+body.dark-mode .contact-section h2 {
+    color: #90ee90;
+}
+
+body.dark-mode .contact-section ul {
+    color: #ddd;
+}
+
+body.dark-mode .contact-section li {
+    color: #ccc;
+}
+
+body.dark-mode .about-wrapper h2, 
+body.dark-mode .about-section h2 {
+    color: #90ee90;
 }
 
 /* Only for Linked Headings in Indoor and Outdoor Plants*/
