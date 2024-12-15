@@ -12,7 +12,7 @@ $cartFile = './json/cart.json';
 $carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
 $currentUser = $_SESSION['user'];
 
-// Validate that the user's cart exists
+// Ensure the user's cart exists
 if (!isset($carts[$currentUser])) {
     $carts[$currentUser] = [];
 }
@@ -38,13 +38,13 @@ if ($pid) {
     }
 }
 
-// Save the updated cart back to the file
+// Save the updated cart to the file
 file_put_contents($cartFile, json_encode($carts, JSON_PRETTY_PRINT));
 
-// Sync the updated cart with the session
+// Synchronize session with updated cart
 $_SESSION['cart'] = $carts[$currentUser];
 
-// Redirect back to the shopping cart page
+// Redirect back to the referring page
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 ?>
