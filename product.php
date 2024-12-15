@@ -59,9 +59,11 @@ $wishlists = file_exists($wishlistFile) ? json_decode(file_get_contents($wishlis
 $currentUser = $_SESSION['user'] ?? null;
 $userWishlist = $wishlists[$currentUser] ?? [];
 
-$pageTitle = "Plantopia | Products";
-include('includes/header.php'); 
+    $pageTitle = "Plantopia | Products";
+    include('includes/header.php'); 
+    include('includes/navbar.php');
 ?>
+
 <body>
     <div class="container">
         <?php foreach ($productsToShow as $product): ?>
