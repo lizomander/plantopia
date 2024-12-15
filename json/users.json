@@ -1,10 +1,5 @@
 [
     {
-        "username": "Hussain",
-        "password": "$2y$10$kcL5m9\/qvnVg4.\/oQL6nfOAPw2ZmZm4Iijq4ksWnmlMB4QK7RLkf.",
-        "role": "customer"
-    },
-    {
         "username": "Ahsan",
         "password": "$2y$10$Z2bqbNdCshS89CIyRXC22eFqskOGZBCcyJnkIO\/vrLq18yFSswCnC",
         "role": "customer"
@@ -24,5 +19,10 @@
         "password": "$2y$10$WY1ka1x8vYD0t\/r7H7jTM.YsASYCWAtz7OQXg0XLTneh1c.cLqNse",
         "role": "customer",
         "blocked": false
+    },
+    {
+        "username": "Hussain",
+        "password": "$2y$10$mpymfVS3YJflNMXUqvPgR..w\/oHM5\/K.8FEDtvlwmi\/ZnN7pTQHAa",
+        "role": "admin"
     }
 ]
