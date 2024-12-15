@@ -23,7 +23,7 @@ $action = $_POST['action'] ?? null;
 $quantity = intval($_POST['quantity'] ?? 1);
 
 // Perform the requested action
-if ($pid && isset($carts[$currentUser][$pid])) {
+if ($pid) {
     if ($action === 'update') {
         if ($quantity > 0) {
             // Update the quantity
@@ -36,12 +36,15 @@ if ($pid && isset($carts[$currentUser][$pid])) {
         // Remove the item from the cart
         unset($carts[$currentUser][$pid]);
     }
-
-    // Save the updated cart back to the file
-    file_put_contents($cartFile, json_encode($carts, JSON_PRETTY_PRINT));
 }
 
+// Save the updated cart back to the file
+file_put_contents($cartFile, json_encode($carts, JSON_PRETTY_PRINT));
+
+// Sync the updated cart with the session
+$_SESSION['cart'] = $carts[$currentUser];
+
 // Redirect back to the shopping cart page
-header('Location: shoppingCart.php');
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit;
 ?>
