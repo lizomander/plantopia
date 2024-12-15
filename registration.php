@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Save the user to a JSON file
     $usersFile = './json/users.json';
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
+
     foreach ($users as $user) {
         if ($user['username'] === $username) {
             echo "Username already exists!";
@@ -27,7 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $users[] = ['username' => $username, 'password' => $hashedPassword];
+    $users[] = [
+        'username' => $username,
+        'password' => $hashedPassword,
+        'role' => 'customer'
+    ];
+
     file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
 
     // Redirect to login page
