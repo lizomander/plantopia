@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $pageTitle = "Plantopia | Homepage";
     include('includes/header.php'); 
     include('includes/navbar.php');
@@ -79,19 +80,6 @@
         echo "</ul></section>";
     }
     ?>
-    <script>
-        // Update cart icon based on session data
-        fetch('cartStatus.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data.hasItems) {
-                    document.getElementById('cart-icon').src = './img/ShoppingCartIconFilled.png';
-                } else {
-                    document.getElementById('cart-icon').src = './img/ShoppingCartIcon.png';
-                }
-            })
-            .catch(error => console.error('Error fetching cart status:', error));
-    </script>
 </body>
 <?php
     include('includes/footer.php'); 
