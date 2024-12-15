@@ -107,7 +107,7 @@ body.dark-mode .box {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 3%;
+    padding: 1%;
 }
 
 .header-link {
