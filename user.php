@@ -11,7 +11,7 @@ include('includes/header.php');
 include('includes/navbar.php');
 
 // Load products.json
-$productsFile = 'json/products.json';
+$productsFile = 'json/data.json';
 $productsData = json_decode(file_get_contents($productsFile), true);
 
 // Get the current user's role
@@ -74,7 +74,21 @@ $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
                             <td><?= htmlspecialchars($index) ?></td>
                             <td>
                                 <?php foreach ($order['cart'] as $productId => $quantity): ?>
-                                    <p><?= htmlspecialchars($productsData[$productId] ?? 'Unknown Product') ?>: <?= $quantity ?> pcs</p>
+                                    <?php 
+                                    // Fetch product details from data.json
+                                    $productDetails = null;
+                                    foreach ($productsData['products'] as $product) {
+                                        if ($product['pid'] == $productId) {
+                                            $productDetails = $product;
+                                            break;
+                                        }
+                                    }
+                                    ?>
+                                    <?php if ($productDetails): ?>
+                                        <p><?= htmlspecialchars($productDetails['name']) ?>: <?= $quantity ?> pcs</p>
+                                    <?php else: ?>
+                                        <p>Unknown Product: <?= $quantity ?> pcs</p>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             </td>
                             <td>€<?= number_format($order['total'], 2) ?></td>
