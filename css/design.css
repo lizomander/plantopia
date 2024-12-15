@@ -523,3 +523,28 @@ body.-mode .sale-banner {
     background-color: #a1001b;
     color: white;
 }
+
+/* Ensure Table Cells Align Center */
+.table td, .table th {
+    text-align: center; 
+    vertical-align: middle;
+    padding: 10px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block; 
+    margin: 0; 
+    box-shadow: none; 
+    outline: none; 
+    padding: 6px 12px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #1e7e34;
+    transition: all 0.2s ease;
+}

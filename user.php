@@ -101,11 +101,20 @@ $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
                                 <?php endif; ?>
                             </td>
                             <td><?= htmlspecialchars($order['timestamp']) ?></td>
-                            <td>
+                            <td style="text-align: center; vertical-align: middle;">
                                 <?php if (!in_array($order['status'], ['shipped', 'finished', 'canceled'])): ?>
-                                    <form action="cancelOrder.php" method="POST" style="display:inline;">
+                                    <form action="cancelOrder.php" method="POST" style="margin: 0;">
                                         <input type="hidden" name="order_id" value="<?= $index ?>">
-                                        <button type="submit" class="btn btn-danger btn-sm">Cancel Order</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" style="
+                                            display: inline-block;
+                                            padding: 6px 12px;
+                                            background-color: #28a745; 
+                                            color: white; 
+                                            border: none; 
+                                            border-radius: 5px;
+                                        ">
+                                            Cancel Order
+                                        </button>
                                     </form>
                                 <?php else: ?>
                                     <span class="text-muted">Not Cancellable</span>
