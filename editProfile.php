@@ -103,7 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
-        <a href="user.php" class="btn btn-secondary" style="padding:10px ;">Cancel</a>
+        <button type="button" onclick="window.location.href='user.php'" class="btn btn-primary">Cancel</button>
+
     </form>
 </div>
 </body>
