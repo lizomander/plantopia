@@ -1,7 +1,4 @@
 <body>
-    <header class="hero-banner">
-        <img src="/img/Title.png" alt="Welcome to Plantopia">
-    </header>
     <div>
         <div class="header-links">
             <div class="header-links-wrapper">
