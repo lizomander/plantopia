@@ -24,5 +24,10 @@
     {
         "username": "Ahsan",
         "password": "$2y$10$A1oFQIfPHOJN6AdcrhjUmeME9t.Qcux0T.rZ8jPFcmVe2lsT2ZMee"
+    },
+    {
+        "username": "Hi1mnew",
+        "password": "$2y$10$b1fNxmuA4fur.L7W\/kn8yOba7uwoKBWpJZMkLqXfdNOjUEAs2nr02",
+        "role": "customer"
     }
 ]
