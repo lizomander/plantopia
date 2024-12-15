@@ -42,7 +42,7 @@ if (empty($cart)) {
         return $order['user'] === $currentUser;
     }));
 
-   // Calculate total quantity of items in the cart
+    // Calculate total quantity of items in the cart
     $totalQuantity = array_sum($cart);
 
     // Determine the applicable discount
@@ -62,7 +62,6 @@ if (empty($cart)) {
     $taxAmount = $totalPrice * $taxRate;
     $totalWithTax = $totalPrice + $taxAmount;
 
-
     // Save the order
     $order = [
         'user' => $currentUser,
@@ -70,17 +69,27 @@ if (empty($cart)) {
         'total' => $totalWithTax,
         'discount' => $discount / 100,
         'timestamp' => date('Y-m-d H:i:s'),
+        'status' => 'ordered', // Default status for new orders
     ];
     $orders[] = $order;
     file_put_contents($ordersFile, json_encode($orders, JSON_PRETTY_PRINT));
 
-    // Clear the cart session
+    // Clear cart session
     unset($_SESSION['cart']);
+
+    // Clear cart from cart.json
+    $cartFile = './json/cart.json';
+    $carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
+    $currentUser = $_SESSION['user'];
+    if (isset($carts[$currentUser])) {
+        unset($carts[$currentUser]); // Remove the user's cart from cart.json
+        file_put_contents($cartFile, json_encode($carts, JSON_PRETTY_PRINT)); // Save updated carts
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include('includes/header.php');?>
+<?php include('includes/header.php'); ?>
 <body>
     <header>
         <h1>Thank You for Your Order!</h1>

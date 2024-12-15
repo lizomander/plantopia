@@ -38,6 +38,21 @@ if (isset($_GET['pid'])) {
     die("Parameter is missing!");
 }
 
+$pid = $_GET['pid'] ?? null;
+
+if ($pid) {
+    // Initialize recently viewed session array if not set
+    if (!isset($_SESSION['recently_viewed'])) {
+        $_SESSION['recently_viewed'] = [];
+    }
+
+    // Add the current product to the beginning of the array
+    $_SESSION['recently_viewed'] = array_unique(array_merge([$pid], $_SESSION['recently_viewed']));
+
+    // Limit to the last 5 viewed products
+    $_SESSION['recently_viewed'] = array_slice($_SESSION['recently_viewed'], 0, 5);
+}
+
 // Load wishlist for the current user
 $wishlistFile = './json/wishlists.json';
 $wishlists = file_exists($wishlistFile) ? json_decode(file_get_contents($wishlistFile), true) : [];
@@ -97,8 +112,27 @@ include('includes/navbar.php');
                     >
                 </button>
             </div>
+            <form method="post" action="rateProduct.php">
+                <input type="hidden" name="pid" value="<?php echo htmlspecialchars($product['pid']); ?>">
+                <label for="rating">Rate this product:</label>
+                <select name="rating" id="rating" required>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <button type="submit">Submit Rating</button>
+            </form>
         <?php endforeach; ?>
     </div>
+    <?php
+    $averageRating = $product['ratings']['count'] > 0 
+        ? $product['ratings']['total'] / $product['ratings']['count'] 
+        : 0;
+
+    echo "<p>Average Rating: " . number_format($averageRating, 1) . " / 5</p>";
+    ?>
 
     <?php include('footer.php'); ?>
 

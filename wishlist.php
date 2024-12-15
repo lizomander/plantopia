@@ -72,6 +72,7 @@ include('includes/header.php');
                         </button>
                     </div>
                 </div>
+                <p><a href="index.php">Continue shopping</a></p>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>

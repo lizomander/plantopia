@@ -1,7 +1,10 @@
 <?php
+    session_start();
     $pageTitle = "Plantopia | Homepage";
     include('includes/header.php'); 
     include('includes/navbar.php');
+    $data = json_decode(file_get_contents('./json/data.json'), true);
+    $products = array_column($data['products'], null, 'pid'); // Index products by pid
 ?>
 <body>
     <div id="welcome-message" class="welcome-message"></div>
@@ -53,7 +56,30 @@
         </div>
     </section>
     </div>
+    
+    <?php
+    if (isset($_SESSION['recently_viewed']) && !empty($_SESSION['recently_viewed'])) {
+        echo "<section class='recently-viewed'><h2>Recently Viewed Products</h2>";
+        echo "<ul class='product-list'>";
 
+        foreach ($_SESSION['recently_viewed'] as $pid) {
+            $product = $products[$pid] ?? null; // Fetch product details
+            if ($product) { // Validate the product exists
+                echo "<li>";
+                echo "<a href='product.php?pid=" . htmlspecialchars($pid) . "'>";
+                echo "<img src='" . htmlspecialchars($product['imagepath']) . "' alt='" . htmlspecialchars($product['name']) . "'>";
+                echo "<div class='product-info'>";
+                echo "<p class='product-name'>" . htmlspecialchars($product['name']) . "</p>";
+                echo "<p>" . htmlspecialchars($product['price']) . "€</p>";
+                echo "</div>";
+                echo "</a>";
+                echo "</li>";
+            }
+        }
+
+        echo "</ul></section>";
+    }
+    ?>
     <script>
         // Update cart icon based on session data
         fetch('cartStatus.php')

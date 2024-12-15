@@ -10,7 +10,7 @@ if (isset($_GET['status']) && $_GET['status'] === 'json') {
     header('Content-Type: application/json');
     echo json_encode([
         'hasItems' => $hasItems,
-        'totalItems' => $totalItems, // Include total item count
+        'totalItems' => $totalItems, 
     ]);
     exit;
 }

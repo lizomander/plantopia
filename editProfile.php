@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user'] = $newUsername;
 
             // Redirect to customer page
-            header('Location: customer.php');
+            header('Location: user.php');
             exit;
         }
     }
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
-        <a href="customer.php" class="btn btn-secondary">Cancel</a>
+        <a href="user.php" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 </body>

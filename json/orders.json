@@ -207,10 +207,41 @@
     {
         "user": "NewCustomer",
         "cart": {
-            "1": 5
+            "1": 3
         },
-        "total": 84.7875,
-        "discount": 0.05,
-        "timestamp": "2024-12-14 23:44:15"
+        "total": 53.55,
+        "discount": 0,
+        "timestamp": "2024-12-15 11:16:27",
+        "status": "ordered"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": 3
+        },
+        "total": 53.55,
+        "discount": 0,
+        "timestamp": "2024-12-15 11:18:52",
+        "status": "ordered"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": 3
+        },
+        "total": 53.55,
+        "discount": 0,
+        "timestamp": "2024-12-15 11:20:14",
+        "status": "ordered"
+    },
+    {
+        "user": "NewCustomer",
+        "cart": {
+            "1": 3
+        },
+        "total": 53.55,
+        "discount": 0,
+        "timestamp": "2024-12-15 11:26:30",
+        "status": "ordered"
     }
 ]
