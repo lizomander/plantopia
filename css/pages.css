@@ -454,61 +454,6 @@ th, td {
     text-align: left;
 }
 
-/* Recently Viewed */
-.recently-viewed {
-    border: 1px solid #ddd;  
-    padding: 15px;  
-    margin: 20px 0;  
-    background-color: #f9f9f9; 
-}
-.recently-viewed h2 {
-    margin-bottom: 10px;  
-    font-size: 18px; 
-}
-.recently-viewed .product-list {
-    list-style-type: none;  
-    padding: 0;  
-    margin: 0;  
-}
-.recently-viewed .product-list li {
-    display: flex;  
-    align-items: center;  
-    margin-bottom: 10px;  
-    padding: 10px 0;  
-    border-bottom: 1px solid #eee; 
-}
-.recently-viewed .product-list li:last-child {
-    border-bottom: none; 
-}
-.recently-viewed .product-list a {
-    text-decoration: none;  
-    color: inherit; 
-}
-.recently-viewed .product-list img {
-    width: 60px;  
-    height: auto;  
-    margin-right: 15px;  
-    border-radius: 5px; 
-    border: 1px solid #ccc; 
-}
-.recently-viewed .product-info {
-    display: flex; 
-    flex-direction: column; 
-}
-.recently-viewed .product-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-}
-.recently-viewed .product-info p.product-name {
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-}
-.recently-viewed .product-list li:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
 /* Dark Mode Adjustments for Pages */
 body.-mode .logout-header h1 {
     color: #ff7373;
@@ -524,4 +469,105 @@ body.-mode a {
 
 body.-mode .return-home a {
     color: #3399ff;
+}
+
+/* Recently Viewed */
+.recently-viewed {
+    border: 1px solid #ddd;  
+    padding: 15px;  
+    margin: 20px 0;  
+    background-color: #f9f9f9; 
+}
+
+.recently-viewed h2 {
+    margin-bottom: 10px;  
+    font-size: 18px; 
+}
+
+.recently-viewed .product-list {
+    list-style-type: none;  
+    padding: 0;  
+    margin: 0;  
+}
+
+.recently-viewed .product-list li {
+    display: flex;  
+    align-items: center;  
+    margin-bottom: 10px;  
+    padding: 10px 0;  
+    border-bottom: 1px solid #eee; 
+}
+
+.recently-viewed .product-list li:last-child {
+    border-bottom: none; 
+}
+
+.recently-viewed .product-list a {
+    text-decoration: none;  
+    color: inherit; 
+}
+
+.recently-viewed .product-list img {
+    width: 60px;  
+    height: auto;  
+    margin-right: 15px;  
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+}
+
+.recently-viewed .product-info {
+    display: flex; 
+    flex-direction: column; 
+}
+
+.recently-viewed .product-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.recently-viewed .product-info p.product-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.recently-viewed .product-list li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Dark Mode for Recently Viewed */
+body.dark-mode .recently-viewed {
+    border: 1px solid #555; /* Darker border */
+    background-color: #2c2c2c; /* Darker background */
+}
+
+body.dark-mode .recently-viewed h2 {
+    color: #f0f0f0; /* Light header color */
+}
+
+body.dark-mode .recently-viewed .product-list li {
+    border-bottom: 1px solid #444; /* Darker border for items */
+}
+
+body.dark-mode .recently-viewed .product-list li:hover {
+    background-color: #3a3a3a; /* Slightly lighter hover background */
+    cursor: pointer;
+}
+
+body.dark-mode .recently-viewed .product-list a {
+    color: #ccc; /* Light link color */
+}
+
+body.dark-mode .recently-viewed .product-list img {
+    border: 1px solid #666; /* Darker border for images */
+}
+
+body.dark-mode .recently-viewed .product-info p {
+    color: #aaa; /* Light text color for product details */
+}
+
+body.dark-mode .recently-viewed .product-info p.product-name {
+    color: #f0f0f0; /* Brighter text color for product name */
 }
