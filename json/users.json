@@ -20,5 +20,9 @@
         "password": "$2y$10$KVWC0v3Dz0OD9haV6GY9Juiy21czDBdBKM\/41w1AvrR9brSBiAG2a",
         "role": "admin",
         "blocked": false
+    },
+    {
+        "username": "Ahsan",
+        "password": "$2y$10$A1oFQIfPHOJN6AdcrhjUmeME9t.Qcux0T.rZ8jPFcmVe2lsT2ZMee"
     }
 ]
