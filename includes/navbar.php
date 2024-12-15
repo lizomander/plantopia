@@ -1,3 +1,16 @@
+<?php
+session_start(); // Start the session
+
+$cartFile = './json/cart.json';
+$carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
+
+// Validate if user session exists
+$currentUser = $_SESSION['user'] ?? null;
+$userCart = $currentUser && isset($carts[$currentUser]) ? $carts[$currentUser] : [];
+
+// Store the cart in session
+$_SESSION['cart'] = $userCart;
+?>
 <body>
     <header class="hero-banner">
         <img src="/img/Title.png" alt="Welcome to Plantopia">
@@ -10,7 +23,6 @@
                     <a href="wishlist.php" class="header-link">Wishlist</a>
                     <a href="logout.php" class="header-link">Logout</a>
                 </div>
-
                 <div class="right-links">
                     <a href="login.php" class="header-link">Login</a>
                     <a href="registration.php" class="header-link">Register</a>
@@ -22,7 +34,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <nav>
                 <ul>
@@ -45,25 +56,18 @@
         </div>
     </div>
     <script>
-        function updateCartIcon() {
-            fetch('cartStatus.php?status=json')
-                .then(response => response.json())
-                .then(data => {
-                    const cartIcon = document.getElementById('cart-icon');
+    function updateCartIcon() {
+        fetch('cartStatus.php?status=json')
+            .then(response => response.json())
+            .then(data => {
+                const cartIcon = document.getElementById('cart-icon');
+                cartIcon.src = data.hasItems
+                    ? './img/ShoppingCartIconFilled.png'
+                    : './img/ShoppingCartIcon.png';
+            })
+            .catch(error => console.error('Error updating cart icon:', error));
+    }
 
-                    if (data.hasItems) {
-                        // Change to filled icon
-                        cartIcon.src = './img/ShoppingCartIconFilled.png';
-                    } else {
-                        // Change to empty icon
-                        cartIcon.src = './img/ShoppingCartIcon.png';
-                    }
-                })
-                .catch(error => console.error('Error updating cart icon:', error));
-        }
-
-        // Call this function on page load
-        updateCartIcon();
+        setInterval(updateCartIcon, 1000);
     </script>
-
 </body>

@@ -406,7 +406,8 @@ body.dark-mode .cart-container {
 }
 
 body.dark-mode .cart-header {
-    color: #1a4c1a; /* Brighter green for dark mode */
+    color: #cce5cc;
+    background-color: #1a4c1a;
 }
 
 body.dark-mode .cart-item-details {
@@ -418,7 +419,8 @@ body.dark-mode .cart-item {
 }
 
 body.dark-mode .cart-summary {
-    color: #1a4c1a; /* Softer green in dark mode */
+    color: #cce5cc;
+    background-color: #1a4c1a;
 }
 
 /* Profile page */

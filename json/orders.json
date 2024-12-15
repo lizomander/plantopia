@@ -295,5 +295,15 @@
         "canceled_products": [
             "Monstera (Monstera deliciosa) - The Swiss Cheese Star"
         ]
+    },
+    {
+        "user": "Hi1mnew",
+        "cart": {
+            "2": 1
+        },
+        "total": 5.95,
+        "discount": 0,
+        "timestamp": "2024-12-15 21:49:19",
+        "status": "ordered"
     }
 ]

@@ -6,23 +6,19 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-// Load products
 $data = json_decode(file_get_contents('./json/data.json'), true);
 $products = [];
 foreach ($data['products'] as $product) {
     $products[$product['pid']] = $product;
 }
 
-// Load cart from cart.json
 $cartFile = './json/cart.json';
 $carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
 $currentUser = $_SESSION['user'];
 $userCart = $carts[$currentUser] ?? [];
 
-// Sync cart with session (optional but recommended for consistency)
 $_SESSION['cart'] = $userCart;
 
-// Calculate total price and other details
 $totalPrice = 0;
 $taxRate = 0.19;
 
@@ -34,11 +30,9 @@ foreach ($userCart as $pid => $quantity) {
 
 $totalQuantity = array_sum($userCart);
 
-// Load discounts.json
 $discountsFile = './json/discounts.json';
 $discountsData = json_decode(file_get_contents($discountsFile), true);
 
-// Determine the applicable discount based on cart quantity
 $discount = 0;
 foreach ($discountsData['discounts'] as $rule) {
     if ($totalQuantity >= $rule['threshold']) {
