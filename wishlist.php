@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $key = array_search($pid, $wishlists[$currentUser]);
         if ($key !== false) {
             unset($wishlists[$currentUser][$key]);
-            $wishlists[$currentUser] = array_values($wishlists[$currentUser]); // Reindex
+            $wishlists[$currentUser] = array_values($wishlists[$currentUser]);
         }
     }
 
