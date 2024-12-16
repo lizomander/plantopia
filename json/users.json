@@ -18,7 +18,7 @@
     {
         "username": "Hussain",
         "password": "$2y$10$KVWC0v3Dz0OD9haV6GY9Juiy21czDBdBKM\/41w1AvrR9brSBiAG2a",
-        "role": "admin",
+        "role": "admin"
     },
     {
         "username": "Ahsan",
