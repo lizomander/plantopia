@@ -107,23 +107,23 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Wrap items on smaller screens */
+    flex-wrap: wrap;
 }
 
 .plant-item {
-    width: 150px; /* Maintain uniform card sizes */
+    width: 150px;
     text-align: center;
 }
 
 .plant-item a {
     text-decoration: none;
     color: inherit;
-    display: block; /* Entire item clickable */
+    display: block;
 }
 
 .plant-item img {
     width: 100%;
-    height: 150px; /* Consistent height for all images */
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -131,7 +131,7 @@ body {
 }
 
 .plant-item img:hover {
-    transform: scale(1.05); /* Hover zoom */
+    transform: scale(1.05);
 }
 
 .plant-item p {
@@ -160,25 +160,25 @@ body.dark-mode .center-text {
 
 :root {
     /* Light Mode - Botanical Garden */
-    --primary-color: #B2BEB5; /* Sage Green */
-    --secondary-color: #F8F5E9; /* Ivory White */
-    --accent-color: #D99A6C; /* Terracotta */
-    --background-color: #FFFFFF; /* White */
-    --text-color: #333333; /* Charcoal */
-    --highlight-color: #F5D5CB; /* Pale Blush */
-    --price-box-bg: #f7fff8; /* Light green */
-    --price-box-text: #333; /* Dark text for light mode */
+    --primary-color: #B2BEB5;
+    --secondary-color: #F8F5E9;
+    --accent-color: #D99A6C;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --highlight-color: #F5D5CB;
+    --price-box-bg: #f7fff8;
+    --price-box-text: #333;
 }
 
 body.dark-mode {
     /* Dark Mode - Fairy Garden */
-    --primary-color: #2E1E33; /* Deep Lavender */
-    --secondary-color: #BCA5B3; /* Dusky Rose */
-    --accent-color: #6A994E; /* Moss Green */
-    --background-color: #635D90; /* Midnight Violet */
-    --text-color: #EDE8E1; /* Soft Cream */
-    --price-box-bg: #165316; /* Dark green for price box */
-    --price-box-text: #FFFFFF; /* White text for dark mode */
+    --primary-color: #2E1E33;
+    --secondary-color: #BCA5B3;
+    --accent-color: #6A994E;
+    --background-color: #635D90;
+    --text-color: #EDE8E1;
+    --price-box-bg: #165316; 
+    --price-box-text: #FFFFFF;
 }
 
 /* Apply variables to your site */
@@ -214,18 +214,18 @@ button {
 }
   
 .icon-toggle .moon {
-color: #f0e68c; /* Moon color */
+color: #f0e68c;
 }
 
 .icon-toggle .sun {
-color: #ffd700; /* Sun color */
+color: #ffd700;
 }
 
 /* Price Calculation Box */
 #price-calculation {
-background-color: var(--price-box-bg); /* Dynamic based on mode */
-color: var(--price-box-text); /* Dynamic based on mode */
-border-left: 5px solid var(--secondary-color); /* Greenish border for better contrast */
+background-color: var(--price-box-bg);
+color: var(--price-box-text);
+border-left: 5px solid var(--secondary-color);
 padding: 15px;
 margin-top: 20px;
 margin-bottom: 20px;
@@ -244,8 +244,8 @@ border: 1px solid #ccc;
 border-radius: 5px;
 font-size: 14px;
 margin-right: 10px;
-color: var(--text-color); /* Adjust text color */
-background-color: var(--background-color); /* Match input with mode */
+color: var(--text-color);
+background-color: var(--background-color);
 }
 
 #price-calculation button {
@@ -272,7 +272,6 @@ margin-top: 15px;
     color: var(--text-color);
     font-weight: bold;
 }
-
 
 .hidden {
     display: none;
@@ -400,9 +399,9 @@ body.dark-mode .cart-item {
 
 /* Dark mode for Shooping Cart */
 body.dark-mode .cart-container {
-    background: #1a4c1a; /* Darker green for dark mode */
-    color: #d4f5d4; /* Light text */
-    box-shadow: none; /* Remove shadow for dark mode */
+    background: #1a4c1a;
+    color: #d4f5d4; 
+    box-shadow: none;
 }
 
 body.dark-mode .cart-header {
@@ -411,11 +410,11 @@ body.dark-mode .cart-header {
 }
 
 body.dark-mode .cart-item-details {
-    color: #cce5cc; /* Softer green in dark mode */
+    color: #cce5cc;
 }
 
 body.dark-mode .cart-item {
-    color: #cce5cc; /* Softer green in dark mode */
+    color: #cce5cc;
 }
 
 body.dark-mode .cart-summary {
@@ -544,35 +543,35 @@ body.-mode .return-home a {
 
 /* Dark Mode for Recently Viewed */
 body.dark-mode .recently-viewed {
-    border: 1px solid #555; /* Darker border */
-    background-color: #2c2c2c; /* Darker background */
+    border: 1px solid #555;
+    background-color: #2c2c2c;
 }
 
 body.dark-mode .recently-viewed h2 {
-    color: #f0f0f0; /* Light header color */
+    color: #f0f0f0;
 }
 
 body.dark-mode .recently-viewed .product-list li {
-    border-bottom: 1px solid #444; /* Darker border for items */
+    border-bottom: 1px solid #444;
 }
 
 body.dark-mode .recently-viewed .product-list li:hover {
-    background-color: #3a3a3a; /* Slightly lighter hover background */
+    background-color: #3a3a3a;
     cursor: pointer;
 }
 
 body.dark-mode .recently-viewed .product-list a {
-    color: #ccc; /* Light link color */
+    color: #ccc;
 }
 
 body.dark-mode .recently-viewed .product-list img {
-    border: 1px solid #666; /* Darker border for images */
+    border: 1px solid #666;
 }
 
 body.dark-mode .recently-viewed .product-info p {
-    color: #aaa; /* Light text color for product details */
+    color: #aaa;
 }
 
 body.dark-mode .recently-viewed .product-info p.product-name {
-    color: #f0f0f0; /* Brighter text color for product name */
+    color: #f0f0f0;
 }

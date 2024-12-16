@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const darkModeButton = document.createElement("button");
-    darkModeButton.innerHTML = isDarkMode ? "☀️" : "🌙"; // Default icon based on mode
+    darkModeButton.innerHTML = isDarkMode ? "☀️" : "🌙";
     darkModeButton.onclick = toggleDarkMode;
     darkModeButton.style.position = "fixed";
     darkModeButton.style.bottom = "10px";
@@ -28,21 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function toggleDarkMode() {
         if (isDarkMode) {
             body.classList.remove("dark-mode");
-            localStorage.setItem("darkMode", "false"); // Save state
-            darkModeButton.innerHTML = "🌙"; // Change icon to moon
+            localStorage.setItem("darkMode", "false"); 
+            darkModeButton.innerHTML = "🌙";
         } else {
             body.classList.add("dark-mode");
-            localStorage.setItem("darkMode", "true"); // Save state
-            darkModeButton.innerHTML = "☀️"; // Change icon to sun
+            localStorage.setItem("darkMode", "true");
+            darkModeButton.innerHTML = "☀️";
         }
         isDarkMode = !isDarkMode;
     }
 
     // LAYOUT TOGGLE
-    let isMobileLayout = false; // Default to desktop layout
+    let isMobileLayout = false;
 
     const layoutToggleButton = document.createElement("button");
-    layoutToggleButton.innerHTML = "📱"; // Default to phone icon
+    layoutToggleButton.innerHTML = "📱"; 
     layoutToggleButton.onclick = toggleLayout;
     layoutToggleButton.style.position = "fixed";
     layoutToggleButton.style.bottom = "60px"; 
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(layoutToggleButton);
 
     function toggleLayout() {
-        console.log("Toggling layout..."); // Debugging
+        console.log("Toggling layout...");
         if (isMobileLayout) {
             body.classList.remove("mobile-layout");
-            layoutToggleButton.innerHTML = "📱"; // Change icon to phone
+            layoutToggleButton.innerHTML = "📱";
         } else {
             body.classList.add("mobile-layout");
-            layoutToggleButton.innerHTML = "🖥️"; // Change icon to desktop
+            layoutToggleButton.innerHTML = "🖥️";
         }
         isMobileLayout = !isMobileLayout;
     }
@@ -73,28 +73,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // DROPDOWN TOGGLE LOGIC
     const navItems = document.querySelectorAll("nav ul li");
 
-    // Handle dropdown behavior for desktop and mobile layouts
     navItems.forEach((item) => {
-        const dropdown = item.querySelector("ul"); // Submenu inside this <li>
-
+        const dropdown = item.querySelector("ul");
         if (dropdown) {
             item.addEventListener("mouseenter", () => {
                 if (!body.classList.contains("mobile-layout")) {
-                    dropdown.style.display = "block"; // Show dropdown on hover in desktop
+                    dropdown.style.display = "block";
                 }
             });
 
             item.addEventListener("mouseleave", () => {
                 if (!body.classList.contains("mobile-layout")) {
-                    dropdown.style.display = "none"; // Hide dropdown on hover out in desktop
+                    dropdown.style.display = "none"; 
                 }
             });
 
             item.addEventListener("click", (e) => {
                 if (body.classList.contains("mobile-layout")) {
-                    e.preventDefault(); // Prevent navigation if dropdown exists
+                    e.preventDefault(); 
                     dropdown.style.display =
-                        dropdown.style.display === "block" ? "none" : "block"; // Toggle dropdown
+                        dropdown.style.display === "block" ? "none" : "block"; 
                 }
             });
         }
