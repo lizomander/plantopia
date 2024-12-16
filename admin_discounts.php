@@ -2,12 +2,11 @@
 $discountsFile = './json/discounts.json';
 
 $discountSettings = file_exists($discountsFile) ? json_decode(file_get_contents($discountsFile), true) : [
-    'discounts' => []
+                'discounts' => []
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $discountSettings['discounts'] = [];
-
+        $discountSettings['discounts'] = [];
     foreach ($_POST['threshold'] as $index => $threshold) {
         if (!empty($threshold) && !empty($_POST['percentage'][$index])) {
             $discountSettings['discounts'][] = [

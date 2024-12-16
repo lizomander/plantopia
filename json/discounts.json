@@ -1,8 +1,8 @@
 {
     "discounts": [
         {
-            "threshold": 10,
-            "percentage": 10
+            "threshold": 15,
+            "percentage": 15
         },
         {
             "threshold": 20,
