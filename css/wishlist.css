@@ -113,64 +113,63 @@ body {
     background-color: rgb(210, 245, 226);
 }
 
-
-
 .wishlist-btn:hover img {
     transform: scale(1.1);
     transition: transform 0.2s ease;
 }
+
 /* Dark Mode for Wishlist Items */
 body.dark-mode .wishlist-item {
-    background: #2c2c2c; /* Darker background */
-    border: 1px solid #555; /* Darker border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    background: #2c2c2c;
+    border: 1px solid #555; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); 
 }
 
 body.dark-mode .wishlist-item:hover {
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); /* Stronger hover shadow */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); 
     transform: scale(1.02);
 }
 
 /* Dark Mode Wishlist Name and Price */
 body.dark-mode .wishlist-name {
-    color: #f0f0f0; /* Lighter text for readability */
+    color: #f0f0f0;
 }
 
 body.dark-mode .wishlist-price {
-    color: #ccc; /* Lighter gray for price */
+    color: #ccc;
 }
 
 /* Dark Mode Buttons */
 body.dark-mode .btn-remove {
-    background-color: #ff7373; /* Softer red */
+    background-color: #ff7373; 
     color: white;
 }
 
 body.dark-mode .btn-add-to-cart {
-    background-color: #4caf50; /* Adjusted green */
+    background-color: #4caf50; 
     color: white;
 }
 
 body.dark-mode .btn-remove:hover,
 body.dark-mode .btn-add-to-cart:hover {
-    background-color: #3b863b; /* Slightly darker hover effect */
+    background-color: #3b863b; 
     transition: background-color 0.3s ease;
 }
 
 /* Dark Mode Wishlist Images */
 body.dark-mode .wishlist-image {
     border-radius: 5px;
-    border: 1px solid #666; /* Darker border for images */
+    border: 1px solid #666; 
 }
 
 /* Wishlist Button in Dark Mode */
 body.dark-mode .wishlist-btn img {
-    background-color: #444; /* Darker button background */
-    border: 1px solid #555; /* Matching border */
+    background-color: #444; 
+    border: 1px solid #555; 
 }
 
 body.dark-mode .wishlist-btn:hover img {
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.1);
     transition: transform 0.2s ease;
 }
 

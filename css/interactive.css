@@ -26,13 +26,12 @@ body {
 }
 
 /* BUTTON */
-
 /* Shared Button Styling */
 button {
     background: radial-gradient(circle, #4d924d, #006400);
     color: rgb(126, 174, 134);
     border: none;
-    padding: 10px 20px; /* Increased padding */
+    padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px; 
     font-family: 'Montserrat', sans-serif;
@@ -253,7 +252,7 @@ nav ul li:hover ul {
 /* Input field */
 .password-container input {
     width: 100%;
-    padding-right: 36px; /* Space for toggle button */
+    padding-right: 36px;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -263,12 +262,12 @@ nav ul li:hover ul {
 
 /* Toggle button */
 #togglePassword {
-    all: unset; /* Reset default styles */
+    all: unset;
     position: absolute;
     right: 10px;
     top: 39%;
     transform: translateY(-50%);
-    width: 24px; /* Small button size */
+    width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
@@ -301,7 +300,7 @@ nav ul li:hover ul {
 /* Input field */
 .password-container input {
     width: 100%;
-    padding-right: 36px; /* Space for toggle button */
+    padding-right: 36px;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -311,12 +310,12 @@ nav ul li:hover ul {
 
 /* Toggle button */
 .password-container .toggle {
-    all: unset; /* Reset default styles */
+    all: unset;
     position: absolute;
     right: 10px;
     top: 39%;
     transform: translateY(-50%);
-    width: 24px; /* Small button size */
+    width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
@@ -344,7 +343,6 @@ nav ul li:hover ul {
 }
 
 /* FORMS */
-
 /* Form Styling */
 form {
     max-width: 400px;
@@ -357,9 +355,9 @@ form {
 }
 
 body.dark-mode form {
-    background-color: #2c2c2c; /* Darker background */
-    border: 1px solid #555; /* Darker border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    background-color: #2c2c2c; 
+    border: 1px solid #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Form Labels */
@@ -371,7 +369,7 @@ form label {
 }
 
 body.dark-mode form label {
-    color: #ccc; /* Lighter label color in dark mode */
+    color: #ccc;
 }
 
 /* Form Inputs */
@@ -382,14 +380,14 @@ form input {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #fff; /* Light background */
-    color: #333; /* Text color */
+    background-color: #fff;
+    color: #333;
 }
 
 body.dark-mode form input {
-    background-color: #444; /* Darker input background */
-    color: #fff; /* Light text color */
-    border: 1px solid #666; /* Darker border */
+    background-color: #444; 
+    color: #fff;
+    border: 1px solid #666;
 }
 
 /* Valid and Error States */
@@ -398,7 +396,7 @@ input.valid {
 }
 
 body.dark-mode input.valid {
-    border-color: #4caf50; /* Adjusted green for dark mode */
+    border-color: #4caf50;
 }
 
 input.error {
@@ -406,7 +404,7 @@ input.error {
 }
 
 body.dark-mode input.error {
-    border-color: #ff7373; /* Softer red for dark mode */
+    border-color: #ff7373;
 }
 
 /* Form Buttons */
@@ -423,7 +421,7 @@ form button {
 }
 
 body.dark-mode form button {
-    background-color: #1b6b1b; /* Darker green */
+    background-color: #1b6b1b;
 }
 
 form button:hover {
@@ -431,7 +429,7 @@ form button:hover {
 }
 
 body.dark-mode form button:hover {
-    background-color: #155e15; /* Even darker green for hover */
+    background-color: #155e15;
 }
 
 /* Inputs for Text and Password */
@@ -446,9 +444,9 @@ input[type="text"], input[type="password"] {
 }
 
 body.dark-mode input[type="text"], body.dark-mode input[type="password"] {
-    color: white; /* Lighter text color for dark mode */
-    background-color: #444; /* Darker background */
-    border: 1px solid #666; /* Darker border */
+    color: white;
+    background-color: #444;
+    border: 1px solid #666;
 }
 
 /* Password Container */
@@ -508,19 +506,19 @@ body.dark-mode .toggle-btn:hover {
   }
   
   body.dark-mode .slideshow {
-    background-color: #123312; /* Dark green for dark mode */
+    background-color: #123312;
   }
   
   .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    animation: autoSlide 12s infinite; /* Automatic sliding */
+    animation: autoSlide 12s infinite;
   }
   
   .slide {
     min-width: 100%;
     font-size: 18px;
-    color: #006400; /* Forest green */
+    color: #006400;
     font-weight: bold;
     line-height: 1.4;
   }
@@ -574,6 +572,7 @@ body.dark-mode .toggle-btn:hover {
     background-color: #0056b3;
     transform: translateX(-50%) scale(1.1); 
 }
+
 /* Dark Mode Adjustments for Buttons */
 body.-mode button {
     background: radial-gradient(circle, #2e8b57, #004d00);
