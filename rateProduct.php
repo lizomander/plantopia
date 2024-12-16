@@ -14,7 +14,6 @@ if ($pid && $rating >= 1 && $rating <= 5) {
             $product['ratings']['total'] += $rating;
         }
     }
-
     file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT));
     header('Location: product.php?pid=' . $pid);
     exit;

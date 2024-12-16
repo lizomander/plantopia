@@ -10,22 +10,18 @@ $pageTitle = "Plantopia | User Page";
 include('includes/header.php');
 include('includes/navbar.php');
 
-// Load products.json
 $productsFile = 'json/data.json';
 $productsData = json_decode(file_get_contents($productsFile), true);
 
-// Get the current user's role
 $currentUser = $_SESSION['user'];
-$currentUserRole = $_SESSION['role'] ?? 'customer'; // Default to customer
+$currentUserRole = $_SESSION['role'] ?? 'customer';
 
-// Load orders.json
 $ordersFile = 'json/orders.json';
 $ordersData = [];
 if (file_exists($ordersFile)) {
     $ordersData = json_decode(file_get_contents($ordersFile), true);
 }
 
-// Filter orders for the current user
 $userOrders = array_filter($ordersData, function ($order) use ($currentUser) {
     return isset($order['user']) && $order['user'] === $currentUser;
 });

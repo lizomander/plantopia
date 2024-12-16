@@ -1,5 +1,4 @@
 <?php
-// Load orders.json
 $ordersFile = 'json/orders.json';
 $ordersData = json_decode(file_get_contents($ordersFile), true);
 
@@ -10,18 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['s
     if (isset($ordersData[$orderId])) {
         $ordersData[$orderId]['status'] = $newStatus;
 
-        // Handle rejection reason for canceled orders
         if ($newStatus === 'canceled' && isset($_POST['rejection_reason'])) {
             $ordersData[$orderId]['rejection_reason'] = $_POST['rejection_reason'];
         }
 
-        // Save updates to orders.json
         file_put_contents($ordersFile, json_encode($ordersData, JSON_PRETTY_PRINT));
         $feedback = "Order ID $orderId updated successfully!";
     }
 }
 
-// Filter orders by state
 $filterState = $_GET['state'] ?? 'all';
 $filteredOrders = $ordersData;
 

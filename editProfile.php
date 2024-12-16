@@ -81,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <h1>Edit Profile</h1>
 
-    <!-- Display errors -->
     <?php if ($error): ?>
         <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
@@ -104,7 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
         <button type="button" onclick="window.location.href='user.php'" class="btn btn-primary">Cancel</button>
-
     </form>
 </div>
 </body>

@@ -6,14 +6,12 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-// Load product data
 $data = json_decode(file_get_contents('./json/data.json'), true);
 $products = [];
 foreach ($data['products'] as $product) {
     $products[$product['pid']] = $product;
 }
 
-// Load cart
 $cart = $_SESSION['cart'] ?? [];
 if (empty($cart)) {
     $errorMessage = "Cart is empty!";
@@ -34,7 +32,6 @@ if (empty($cart)) {
         die("Error: Discounts not loaded or invalid format in discounts.json");
     }
 
-    // Get user's order count
     $ordersFile = './json/orders.json';
     $orders = file_exists($ordersFile) ? json_decode(file_get_contents($ordersFile), true) : [];
     $currentUser = $_SESSION['user'];
@@ -42,10 +39,8 @@ if (empty($cart)) {
         return $order['user'] === $currentUser;
     }));
 
-    // Calculate total quantity of items in the cart
     $totalQuantity = array_sum($cart);
 
-    // Determine the applicable discount
     $discount = 0;
     foreach ($discounts['discounts'] as $rule) {
         if ($totalQuantity >= $rule['threshold']) {
@@ -53,31 +48,26 @@ if (empty($cart)) {
         }
     }
 
-    // Apply the discount
     $totalPriceBeforeDiscount = $totalPrice;
     $discountAmount = $totalPrice * ($discount / 100);
     $totalPrice -= $discountAmount;
 
-    // Final price calculations
     $taxAmount = $totalPrice * $taxRate;
     $totalWithTax = $totalPrice + $taxAmount;
 
-    // Save the order
     $order = [
         'user' => $currentUser,
         'cart' => $cart,
         'total' => $totalWithTax,
         'discount' => $discount / 100,
         'timestamp' => date('Y-m-d H:i:s'),
-        'status' => 'ordered', // Default status for new orders
+        'status' => 'ordered',
     ];
     $orders[] = $order;
     file_put_contents($ordersFile, json_encode($orders, JSON_PRETTY_PRINT));
 
-    // Clear cart session
     unset($_SESSION['cart']);
 
-    // Clear cart from cart.json
     $cartFile = './json/cart.json';
     $carts = file_exists($cartFile) ? json_decode(file_get_contents($cartFile), true) : [];
     $currentUser = $_SESSION['user'];

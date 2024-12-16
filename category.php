@@ -46,6 +46,5 @@ foreach ($productsBySubcategory as $subcategory => $productsInSub) {
             "</a></p>";
     }
 }
-
 echo "<p><a href='index.php'>Return to Homepage</a></p>";
 ?>

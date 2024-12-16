@@ -14,10 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Hash the password for security
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Save the user to a JSON file
     $usersFile = './json/users.json';
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 
@@ -36,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
 
-    // Redirect to login page
     header('Location: login.php');
     exit;
 }

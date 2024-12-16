@@ -99,7 +99,6 @@ $userWishlist = $wishlists[$currentUser] ?? [];
             <!-- Wishlist Heart Icon -->
             <div class="wishlist-icon-container">
                 <?php
-                // Check if the product is in the wishlist
                 $isInWishlist = in_array($product['pid'], $userWishlist);
                 ?>
                 <button 

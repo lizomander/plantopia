@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Check if the user is logged in and has admin privileges
 if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') {
     header('Location: login.php');
     exit;
@@ -38,9 +37,7 @@ include('includes/header.php');
                 <h1 class="h2">Admin Dashboard</h1>
             </div>
 
-            <!-- Content Area -->
             <?php
-            // Load the selected section
             $section = $_GET['section'] ?? 'orders';
             if ($section === 'orders') {
                 include('admin_orders.php');
@@ -58,6 +55,5 @@ include('includes/header.php');
         </main>
     </div>
 </div>
-</body>
-
 <?php include('includes/footer.php'); ?>
+</body>

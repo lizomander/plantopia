@@ -1,19 +1,13 @@
 <?php
-
-// File to store discount settings
 $discountsFile = './json/discounts.json';
 
-// Load existing discount settings or set defaults
 $discountSettings = file_exists($discountsFile) ? json_decode(file_get_contents($discountsFile), true) : [
-    'discounts' => [] // Example: [{ 'threshold': 10, 'percentage': 10 }]
+    'discounts' => []
 ];
 
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Reset discounts array
     $discountSettings['discounts'] = [];
 
-    // Loop through submitted thresholds and percentages
     foreach ($_POST['threshold'] as $index => $threshold) {
         if (!empty($threshold) && !empty($_POST['percentage'][$index])) {
             $discountSettings['discounts'][] = [
@@ -23,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Save updated settings
     file_put_contents($discountsFile, json_encode($discountSettings, JSON_PRETTY_PRINT));
     $feedback = "Discount settings updated successfully!";
 }

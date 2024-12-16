@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Redirect to login if no user is logged in
 if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
 
-// Load wishlist and product data
 $wishlistFile = './json/wishlists.json';
 $productFile = './json/data.json';
 
@@ -15,15 +13,12 @@ $wishlists = file_exists($wishlistFile) ? json_decode(file_get_contents($wishlis
 $data = file_exists($productFile) ? json_decode(file_get_contents($productFile), true) : [];
 $products = array_column($data['products'], null, 'pid'); // Re-index by `pid`
 
-// Get the current user
 $currentUser = $_SESSION['user'];
 
-// Initialize the user's wishlist if not already set
 if (!isset($wishlists[$currentUser])) {
     $wishlists[$currentUser] = [];
 }
 
-// Handle POST Request for Add and Remove Actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pid = intval($_POST['pid'] ?? null);
     $action = $_POST['action'] ?? null;
@@ -40,13 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Save updated wishlist
     file_put_contents($wishlistFile, json_encode($wishlists, JSON_PRETTY_PRINT));
     echo json_encode(['success' => true]);
     exit;
 }
 
-// Load the user's wishlist for display
 $userWishlist = array_map('intval', $wishlists[$currentUser]);
 include('includes/header.php');
 ?>
@@ -78,13 +71,11 @@ include('includes/header.php');
     </div>
 
     <script>
-        // Handle "Remove" button functionality
         document.querySelectorAll('.remove-btn').forEach(button => {
             button.addEventListener('click', function () {
                 const pid = this.getAttribute('data-pid');
                 const parentItem = this.closest('.wishlist-item');
 
-                // Send the removal request to the server
                 fetch('wishlist.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -104,13 +95,11 @@ include('includes/header.php');
             });
         });
 
-        // Handle "Add to Cart" button functionality
         document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             button.addEventListener('click', function () {
                 const pid = this.getAttribute('data-pid');
                 const parentItem = this.closest('.wishlist-item');
 
-                // Send the add-to-cart request
                 fetch('addToCart.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -119,7 +108,6 @@ include('includes/header.php');
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Remove the item from the wishlist
                         parentItem.remove();
                         checkEmptyWishlist();
                     } else {
@@ -133,7 +121,6 @@ include('includes/header.php');
             });
         });
 
-        // Check if the wishlist is empty and show "Continue Shopping" message
         function checkEmptyWishlist() {
             const wishlistContainer = document.getElementById('wishlist-container');
             if (!wishlistContainer.querySelector('.wishlist-item')) {

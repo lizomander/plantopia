@@ -1,6 +1,5 @@
 
 <?php
-// Load users.json
 $usersFile = 'json/users.json';
 $usersData = json_decode(file_get_contents($usersFile), true);
 

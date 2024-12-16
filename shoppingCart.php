@@ -40,7 +40,6 @@ foreach ($discountsData['discounts'] as $rule) {
     }
 }
 
-// Calculate discount and apply to the total price
 $totalPriceBeforeDiscount = $totalPrice;
 $discountAmount = 0;
 if ($discount > 0) {
@@ -48,11 +47,9 @@ if ($discount > 0) {
     $totalPrice -= $discountAmount;
 }
 
-// Calculate tax and final total
 $taxAmount = $totalPrice * $taxRate;
 $finalTotal = $totalPrice + $taxAmount;
 
-// Page Title
 $pageTitle = "Plantopia | Shopping Cart";
 include('includes/header.php');
 ?>
