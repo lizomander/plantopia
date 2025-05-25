@@ -34,16 +34,3 @@ The website consists of several linked HTML pages:
 - **Plant Categories** - Lists of plants grouped by type (indoor, outdoor, speciality).
 
 Each page has links that allow users to move seamlessly between sections.
-
-## Known Issues
-
-Due to restrictions, this project doesn’t include JavaScript or CSS. Therefore, each section is displayed in a linear, scrollable format, without advanced styling or interactive functionality.
-
-## Future Improvements
-
-- Add CSS for improved styling and layout.
-<<<<<<< HEAD
-- Use JavaScript for enhanced navigation and interactivity.
-=======
-- Use JavaScript for enhanced navigation and interactivity.
->>>>>>> 0e640d769a017676a9225268fad7c72d71804808
