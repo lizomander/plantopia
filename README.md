@@ -48,33 +48,13 @@ The project was built using **PHP**, **HTML/CSS/JS**, and **JSON** for data pers
 
 ---
 
-## Directory Structure
-
-```bash
-plantopia/
-├── index.php                 # Homepage
-├── registration.php          # User signup
-├── login.php                 # User login
-├── logout.php
-├── product.php               # Product detail view
-├── wishlist.php              # Wishlist page
-├── shoppingCart.php          # Cart overview
-├── checkout.php              # Checkout flow
-├── rateProduct.php           # Product reviews
-├── admin_*.php               # Admin dashboard pages
-├── js/                       # All custom JS (validation, cart logic, etc.)
-├── css/                      # Styling files
-├── img/                      # Plant images and icons
-├── json/                     # All data storage (acts as mock backend)
-└── includes/                 # Shared layout files (navbar, footer, etc.)
-
 ## How to Run Using PHP's Built-in Server
 
 If you don't want to install a full stack like XAMPP or MAMP, you can use PHP's built-in development server. Here's how:
 
 ### Prerequisites
 - You must have **PHP installed** on your system.
-  - To check, run:
+- To check, run:
     ```
     php -v
     ```
@@ -83,11 +63,11 @@ If you don't want to install a full stack like XAMPP or MAMP, you can use PHP's 
 
 1. Open a terminal or command prompt.
 2. Navigate to the root folder of this project. For example:
-    ```bash
+    ```
     cd path/to/plantopia-main
     ```
 3. Start the PHP development server:
-    ```bash
+    ```
     php -S localhost:8000
     ```
 
@@ -106,7 +86,7 @@ If you don't want to install a full stack like XAMPP or MAMP, you can use PHP's 
 
 This repository documents original work completed as part of the **Web Technology** module at **Technische Hochschule Ingolstadt**.
 
-The goal of publishing this repository is to demonstrate practical machine learning skills and portfolio-level problem-solving using real-world biomedical datasets.
+It is shared for educational transparency and to showcase practical full-stack development skills.
 
 **Do not reuse or submit this content for academic credit.**  
 Please uphold your institution’s academic integrity guidelines.
